@@ -14,9 +14,11 @@ namespace FarmFeedingAppV2
         [STAThread]
         static void Main()
         {
+            LivestockManager lm = new LivestockManager();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new HomeForm());
         }
     }
 }
