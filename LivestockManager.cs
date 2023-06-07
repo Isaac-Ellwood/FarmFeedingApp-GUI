@@ -12,7 +12,7 @@ namespace FarmFeedingAppV2
     {
         // Attributes
         List<string> livestockGroupIDs = new List<string>();
-        List<List<LivestockHolder>> livestockHolders = new List<List<LivestockHolder>>();
+        List<LivestockHolder> livestockHolders = new List<LivestockHolder>();
 
         List<string> foods = new List<string>();
         List<float> foodPrices = new List<float>();
@@ -182,14 +182,11 @@ namespace FarmFeedingAppV2
             float totalFoodCost = 0f;
 
             // Adds food history to temp lists
-            for (int index = 0; index < livestockHolders.Count; i++)
+            for (int i = 0; i < time; i++)
             {
-                for (int i = 0; i < time; i++)
-                {
-                    foodQuantityHistory.Add(livestockHolders[animal].foodQuantity[livestockHolders[animal].foodQuantity.Count - time + i]);
-                    foodTypeHistory.Add(livestockHolders[animal].foodType[livestockHolders[animal].foodType.Count - time + i]);
-                    datesHistory.Add(livestockHolders[animal].dates[livestockHolders[animal].dates.Count - time + i]);
-                }
+                foodQuantityHistory.Add(livestockHolders[animal].foodQuantity[livestockHolders[animal].foodQuantity.Count - time + i]);
+                foodTypeHistory.Add(livestockHolders[animal].foodType[livestockHolders[animal].foodType.Count - time + i]);
+                datesHistory.Add(livestockHolders[animal].dates[livestockHolders[animal].dates.Count - time + i]);
             }
             
 
