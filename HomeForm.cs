@@ -18,43 +18,45 @@ namespace FarmFeedingAppV2
         {
             InitializeComponent();
             this.lm = lm;
-
-            if (File.Exists("SaveData.json"))
+            
+            if (lm.holdsData = false)
             {
-                DialogResult res = MessageBox.Show("Save data detected. Would you like to load existing save data?", "Save Data", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-                if (res == DialogResult.Yes)
+                if (File.Exists("SaveData.json"))
                 {
-                    MessageBox.Show("You have clicked Ok Button");
-
-                    // Either deserialises save data or sets data to defaults
-                    try
+                    DialogResult res = MessageBox.Show("Save data detected. Would you like to load existing save data?", "Save Data", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+                    if (res == DialogResult.Yes)
                     {
-                        lm.DeserialiseSaveData();
+                        MessageBox.Show("You have clicked Ok Button");
+    
+                        // Either deserialises save data or sets data to defaults
+                        try
+                        {
+                            lm.DeserialiseSaveData();
+                        }
+                        catch
+                        {
+                            lm.SetDefaultData();
+                        }
                     }
-                    catch
+                    if (res == DialogResult.No)
                     {
+                        MessageBox.Show("You have clicked Cancel Button");
+    
                         lm.SetDefaultData();
                     }
+                    if (res == DialogResult.Cancel)
+                    {
+                        MessageBox.Show("You have clicked Cancel Button");
+    
+                        this.Close();
+                    }
                 }
-                if (res == DialogResult.No)
+                else
                 {
-                    MessageBox.Show("You have clicked Cancel Button");
-
                     lm.SetDefaultData();
                 }
-                if (res == DialogResult.Cancel)
-                {
-                    MessageBox.Show("You have clicked Cancel Button");
-
-                    this.Close();
-                }
+                lm.holdsData = true;
             }
-            else
-            {
-                lm.SetDefaultData();
-            }
-
-            
         }
 
         
