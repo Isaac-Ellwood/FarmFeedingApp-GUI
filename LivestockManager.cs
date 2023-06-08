@@ -8,7 +8,7 @@ using System.Text.Json;
 
 namespace FarmFeedingAppV2
 {
-    class LivestockManager
+    public class LivestockManager
     {
         // Attributes
         List<string> livestockGroupIDs = new List<string>();
@@ -22,19 +22,11 @@ namespace FarmFeedingAppV2
         // Constructs a Livestock Manager object
         public LivestockManager()
         {
-            // Either deserialises save data or sets data to defaults
-            try
-            {
-                DeserialiseSaveData();
-            }
-            catch
-            {
-                SetDefaultData();
-            }
+            
         }
 
         // Sets livestock manager data to defaults
-        private void SetDefaultData()
+        public void SetDefaultData()
         {
             Console.WriteLine("Applying default data");
             // Sets lists with default data
@@ -158,7 +150,7 @@ namespace FarmFeedingAppV2
         {
             this.speciesList = speciesList;
         }
-        
+
         // Returns list of breed list
         public List<List<string>> GetBreedsList()
         {
@@ -188,7 +180,7 @@ namespace FarmFeedingAppV2
                 foodTypeHistory.Add(livestockHolders[animal].foodType[livestockHolders[animal].foodType.Count - time + i]);
                 datesHistory.Add(livestockHolders[animal].dates[livestockHolders[animal].dates.Count - time + i]);
             }
-            
+
 
             // Converts lists to string and returns
             string foodHistory = "";
@@ -227,22 +219,13 @@ namespace FarmFeedingAppV2
                 // Creates livestockholder and adds it to livestock holder list
                 LivestockHolder livestockHolder = new LivestockHolder(saveData.lHoldersSpecies[i], saveData.lHoldersBreed[i], saveData.lHoldersID[i]);
                 AddLivestockHolder(livestockHolder);
+
                 // Pulls livestock data from 2d lists (prone to fails, so in try catch statements for now)
-                try
-                {
-                    livestockHolders[livestockHolders.Count - 1].foodQuantity = saveData.fQuantityListList[i];
-                }
-                catch { }
-                try
-                {
-                    livestockHolders[livestockHolders.Count - 1].foodType = saveData.fTypeListList[i];
-                }
-                catch{}
-                try
-                {
-                    livestockHolders[livestockHolders.Count - 1].dates = saveData.fDateListList[i];
-                }
-                catch { }
+                // Update: 8/06/2023 they are behaving themselves and are currently free from their try catch statements
+                livestockHolders[livestockHolders.Count - 1].foodQuantity = saveData.fQuantityListList[i];
+                livestockHolders[livestockHolders.Count - 1].foodType = saveData.fTypeListList[i];
+                livestockHolders[livestockHolders.Count - 1].dates = saveData.fDateListList[i];
+
                 Console.WriteLine($"Deserialising {i + 1}/{saveData.lHoldersID.Count}");
             }
 
@@ -252,7 +235,7 @@ namespace FarmFeedingAppV2
             speciesList = saveData.sList;
             breedsList = saveData.bList;
         }
-        
+
         // Serialises and saves save data
         public void SerialiseSaveData()
         {
