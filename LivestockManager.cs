@@ -18,6 +18,9 @@ namespace FarmFeedingAppV2
         List<float> foodPrices = new List<float>();
         List<string> speciesList = new List<string>();
         List<List<string>> breedsList = new List<List<string>>();
+        
+        // Should be false until it loads saved or default data
+        bool holdsData = false;
 
         // Constructs a Livestock Manager object
         public LivestockManager()
@@ -28,7 +31,6 @@ namespace FarmFeedingAppV2
         // Sets livestock manager data to defaults
         public void SetDefaultData()
         {
-            Console.WriteLine("Applying default data");
             // Sets lists with default data
             speciesList = new List<string>()
             {
