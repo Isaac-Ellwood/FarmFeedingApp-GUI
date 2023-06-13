@@ -29,19 +29,20 @@ namespace FarmFeedingAppV2
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnStartNew = new System.Windows.Forms.Button();
+            this.btnAddLivestock = new System.Windows.Forms.Button();
             this.btnSaveAndExit = new System.Windows.Forms.Button();
-            this.btnLoadSaveData = new System.Windows.Forms.Button();
+            this.btnFeedLivestock = new System.Windows.Forms.Button();
+            this.btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnStartNew
+            // btnAddLivestock
             // 
-            this.btnStartNew.Location = new System.Drawing.Point(154, 340);
-            this.btnStartNew.Name = "btnStartNew";
-            this.btnStartNew.Size = new System.Drawing.Size(249, 85);
-            this.btnStartNew.TabIndex = 0;
-            this.btnStartNew.Text = "Start New";
-            this.btnStartNew.UseVisualStyleBackColor = true;
+            this.btnAddLivestock.Location = new System.Drawing.Point(154, 340);
+            this.btnAddLivestock.Name = "btnAddLivestock";
+            this.btnAddLivestock.Size = new System.Drawing.Size(249, 85);
+            this.btnAddLivestock.TabIndex = 0;
+            this.btnAddLivestock.Text = "Add Livestock";
+            this.btnAddLivestock.UseVisualStyleBackColor = true;
             // 
             // btnSaveAndExit
             // 
@@ -53,14 +54,23 @@ namespace FarmFeedingAppV2
             this.btnSaveAndExit.UseVisualStyleBackColor = true;
             this.btnSaveAndExit.Click += new System.EventHandler(this.btnSaveAndExit_Click);
             // 
-            // btnLoadSaveData
+            // btnFeedLivestock
             // 
-            this.btnLoadSaveData.Location = new System.Drawing.Point(154, 447);
-            this.btnLoadSaveData.Name = "btnLoadSaveData";
-            this.btnLoadSaveData.Size = new System.Drawing.Size(249, 85);
-            this.btnLoadSaveData.TabIndex = 2;
-            this.btnLoadSaveData.Text = "Load Save Data";
-            this.btnLoadSaveData.UseVisualStyleBackColor = true;
+            this.btnFeedLivestock.Location = new System.Drawing.Point(154, 447);
+            this.btnFeedLivestock.Name = "btnFeedLivestock";
+            this.btnFeedLivestock.Size = new System.Drawing.Size(249, 85);
+            this.btnFeedLivestock.TabIndex = 2;
+            this.btnFeedLivestock.Text = "Feed Livestock";
+            this.btnFeedLivestock.UseVisualStyleBackColor = true;
+            // 
+            // btn
+            // 
+            this.btn.Location = new System.Drawing.Point(154, 554);
+            this.btn.Name = "btn";
+            this.btn.Size = new System.Drawing.Size(249, 85);
+            this.btn.TabIndex = 3;
+            this.btn.Text = "Edit Livestock And Food Categories";
+            this.btn.UseVisualStyleBackColor = true;
             // 
             // HomeForm
             // 
@@ -68,22 +78,24 @@ namespace FarmFeedingAppV2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(1902, 999);
-            this.Controls.Add(this.btnLoadSaveData);
+            this.Controls.Add(this.btn);
+            this.Controls.Add(this.btnFeedLivestock);
             this.Controls.Add(this.btnSaveAndExit);
-            this.Controls.Add(this.btnStartNew);
-            this.MinimumSize = new System.Drawing.Size(1918, 1038);
+            this.Controls.Add(this.btnAddLivestock);
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnStartNew;
+        private System.Windows.Forms.Button btnAddLivestock;
         private System.Windows.Forms.Button btnSaveAndExit;
-        private System.Windows.Forms.Button btnLoadSaveData;
+        private System.Windows.Forms.Button btnFeedLivestock;
+        private System.Windows.Forms.Button btn;
     }
 }
 

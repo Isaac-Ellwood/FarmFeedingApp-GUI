@@ -20,7 +20,7 @@ namespace FarmFeedingAppV2
         List<List<string>> breedsList = new List<List<string>>();
         
         // Should be false until it loads saved or default data
-        bool holdsData = false;
+        public bool holdsData = false;
 
         // Constructs a Livestock Manager object
         public LivestockManager()
