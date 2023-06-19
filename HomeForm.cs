@@ -1,13 +1,16 @@
-﻿using System;
+﻿using Microsoft.VisualStudio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,15 +19,23 @@ namespace FarmFeedingAppV2
     public partial class HomeForm : Form
     {
         LivestockManager lm;
+        PrivateFontCollection pfc;
         bool saved = false;
 
         public HomeForm(LivestockManager lm, PrivateFontCollection pfc)
         {
             InitializeComponent();
             this.lm = lm;
+            this.pfc = pfc;
 
-            // sets font
-            lblTitle.Font = new Font(pfc.Families[1], lblTitle.Font.Size);
+            // Sets font
+            lblTitle.Font = new Font(pfc.Families[2], lblTitle.Font.Size);
+
+            System.Drawing.FontFamily btnFont = pfc.Families[0];
+            float btnSize = btnAddLivestock.Font.Size;
+            btnAddLivestock.Font = new Font(btnFont, btnSize);
+            btnFeedLivestock.Font = new Font(btnFont, btnSize);
+            btnEditLivestockAndFoodCategories.Font = new Font(btnFont, btnSize);
 
             // Save data handling and checks
             if (lm.holdsData == false)
@@ -102,6 +113,14 @@ namespace FarmFeedingAppV2
             lm.SerialiseSaveData();
             saved = true;
             this.Close();
+        }
+
+        private void btnEditLivestockAndFoodCategories_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DoomHolder myNewForm = new DoomHolder(lm,pfc);
+            myNewForm.FormClosed += (s, args) => this.Close();
+            myNewForm.Show();
         }
     }
 }

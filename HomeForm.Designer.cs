@@ -32,7 +32,7 @@ namespace FarmFeedingAppV2
             this.btnAddLivestock = new System.Windows.Forms.Button();
             this.btnSaveAndExit = new System.Windows.Forms.Button();
             this.btnFeedLivestock = new System.Windows.Forms.Button();
-            this.btn = new System.Windows.Forms.Button();
+            this.btnEditLivestockAndFoodCategories = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -64,14 +64,15 @@ namespace FarmFeedingAppV2
             this.btnFeedLivestock.Text = "Feed Livestock";
             this.btnFeedLivestock.UseVisualStyleBackColor = true;
             // 
-            // btn
+            // btnEditLivestockAndFoodCategories
             // 
-            this.btn.Location = new System.Drawing.Point(154, 554);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(249, 85);
-            this.btn.TabIndex = 3;
-            this.btn.Text = "Edit Livestock And Food Categories";
-            this.btn.UseVisualStyleBackColor = true;
+            this.btnEditLivestockAndFoodCategories.Location = new System.Drawing.Point(154, 554);
+            this.btnEditLivestockAndFoodCategories.Name = "btnEditLivestockAndFoodCategories";
+            this.btnEditLivestockAndFoodCategories.Size = new System.Drawing.Size(249, 85);
+            this.btnEditLivestockAndFoodCategories.TabIndex = 3;
+            this.btnEditLivestockAndFoodCategories.Text = "Edit Livestock And Food Categories";
+            this.btnEditLivestockAndFoodCategories.UseVisualStyleBackColor = true;
+            this.btnEditLivestockAndFoodCategories.Click += new System.EventHandler(this.btnEditLivestockAndFoodCategories_Click);
             // 
             // lblTitle
             // 
@@ -92,7 +93,7 @@ namespace FarmFeedingAppV2
             this.BackgroundImage = global::FarmFeedingAppV2.Properties.Resources.SheepBackground;
             this.ClientSize = new System.Drawing.Size(1902, 999);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.btn);
+            this.Controls.Add(this.btnEditLivestockAndFoodCategories);
             this.Controls.Add(this.btnFeedLivestock);
             this.Controls.Add(this.btnSaveAndExit);
             this.Controls.Add(this.btnAddLivestock);
@@ -110,7 +111,7 @@ namespace FarmFeedingAppV2
         private System.Windows.Forms.Button btnAddLivestock;
         private System.Windows.Forms.Button btnSaveAndExit;
         private System.Windows.Forms.Button btnFeedLivestock;
-        private System.Windows.Forms.Button btn;
+        private System.Windows.Forms.Button btnEditLivestockAndFoodCategories;
         private System.Windows.Forms.Label lblTitle;
     }
 }
