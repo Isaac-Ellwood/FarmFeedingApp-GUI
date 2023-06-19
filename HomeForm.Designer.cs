@@ -33,6 +33,7 @@ namespace FarmFeedingAppV2
             this.btnSaveAndExit = new System.Windows.Forms.Button();
             this.btnFeedLivestock = new System.Windows.Forms.Button();
             this.btn = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAddLivestock
@@ -72,12 +73,23 @@ namespace FarmFeedingAppV2
             this.btn.Text = "Edit Livestock And Food Categories";
             this.btn.UseVisualStyleBackColor = true;
             // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Location = new System.Drawing.Point(480, 120);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(93, 13);
+            this.lblTitle.TabIndex = 4;
+            this.lblTitle.Text = "Farm Feeding App";
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
+            this.BackgroundImage = global::FarmFeedingAppV2.Properties.Resources.SheepBackground;
             this.ClientSize = new System.Drawing.Size(1902, 999);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btn);
             this.Controls.Add(this.btnFeedLivestock);
             this.Controls.Add(this.btnSaveAndExit);
@@ -87,6 +99,7 @@ namespace FarmFeedingAppV2
             this.Text = "Menu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -96,6 +109,7 @@ namespace FarmFeedingAppV2
         private System.Windows.Forms.Button btnSaveAndExit;
         private System.Windows.Forms.Button btnFeedLivestock;
         private System.Windows.Forms.Button btn;
+        private System.Windows.Forms.Label lblTitle;
     }
 }
 
