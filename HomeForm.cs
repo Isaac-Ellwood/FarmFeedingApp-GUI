@@ -18,14 +18,13 @@ namespace FarmFeedingAppV2
         LivestockManager lm;
         bool saved = false;
 
-        public HomeForm(LivestockManager lm)
+        public HomeForm(LivestockManager lm, PrivateFontCollection pfc)
         {
             InitializeComponent();
             this.lm = lm;
 
-            
-
-            lblTitle.Font = new Font(, lblTitle.Font.Size);
+            // sets font
+            lblTitle.Font = new Font(pfc.Families[1], lblTitle.Font.Size);
 
             // Save data handling and checks
             if (lm.holdsData == false)

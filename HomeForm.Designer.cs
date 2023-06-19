@@ -76,11 +76,13 @@ namespace FarmFeedingAppV2
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(480, 120);
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(348, 94);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(93, 13);
+            this.lblTitle.Size = new System.Drawing.Size(849, 124);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "Farm Feeding App";
+            this.lblTitle.UseCompatibleTextRendering = true;
             // 
             // HomeForm
             // 
