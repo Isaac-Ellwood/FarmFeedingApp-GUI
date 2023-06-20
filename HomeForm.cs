@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -20,13 +21,16 @@ namespace FarmFeedingAppV2
     {
         LivestockManager lm;
         PrivateFontCollection pfc;
+        SongManager sm;
+        SoundPlayer song;
         bool saved = false;
 
-        public HomeForm(LivestockManager lm, PrivateFontCollection pfc)
+        public HomeForm(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
         {
             InitializeComponent();
             this.lm = lm;
             this.pfc = pfc;
+            this.sm = sm;
 
             // Sets font
             lblTitle.Font = new Font(pfc.Families[2], lblTitle.Font.Size);
@@ -118,9 +122,21 @@ namespace FarmFeedingAppV2
         private void btnEditLivestockAndFoodCategories_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DoomHolder myNewForm = new DoomHolder(lm,pfc);
+            DoomHolder myNewForm = new DoomHolder(lm,pfc,sm);
             myNewForm.FormClosed += (s, args) => this.Close();
             myNewForm.Show();
+        }
+
+        
+
+        private void btnFeedLivestock_Click(object sender, EventArgs e)
+        {
+            sm.playSong(true, "chillin39-20915");
+        }
+
+        private void btnAddLivestock_Click(object sender, EventArgs e)
+        {
+            sm.stopSong();
         }
     }
 }

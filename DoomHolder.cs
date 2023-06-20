@@ -21,14 +21,14 @@ namespace FarmFeedingAppV2
         Process doom;
         LivestockManager lm;
         PrivateFontCollection pfc;
-        Thread checkProcessThread;
-        private volatile bool stopThread = false;
+        SongManager sm;
 
-        public DoomHolder(LivestockManager lm, PrivateFontCollection pfc)
+        public DoomHolder(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
         {
             InitializeComponent();
             this.lm = lm;
             this.pfc = pfc;
+            this.sm = sm;
 
             // Specify the file name and the destination path in the Resources folder (More string manipulation than in the actual program)
             string destinationPath = Path.Combine(Application.StartupPath, "..", "..", "Resources", "gzdoom-4-10-0-Windows-64bit", "gzdoom.exe");
@@ -44,14 +44,18 @@ namespace FarmFeedingAppV2
                 doom.Refresh();
             }
             Win32Methods.SetParent(doom.MainWindowHandle, this.Handle);
+
+            // Stops current song
+            sm.stopSong();
         }
 
         private void button1_Click(object sender, EventArgs e) // This should not say "button1", But it does because of vs glitches. IF ERROR, LOOK HERE.
         {
             this.Hide();
-            HomeForm myNewForm = new HomeForm(lm,pfc);
+            HomeForm myNewForm = new HomeForm(lm,pfc,sm);
             myNewForm.FormClosed += (s, args) => this.Close();
             myNewForm.Show();
+            sm.playSong(false, "TheMostMysteriousSongOnTheInternet");
         }
     }
 }

@@ -19,17 +19,12 @@ namespace FarmFeedingAppV2
             // Creates LivestockManager
             LivestockManager lm = new LivestockManager();
             PrivateFontCollection pfc = InitCustomLabelFont();
+            SongManager sm = new SongManager();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            try
-            {
-                Application.Run(new HomeForm(lm,pfc));
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Either Isaac broke it or you got scared of popups XD");
-            }
+            
+            Application.Run(new HomeForm(lm,pfc, sm));
         }
 
         // Creates a font library

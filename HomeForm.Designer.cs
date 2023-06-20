@@ -44,6 +44,7 @@ namespace FarmFeedingAppV2
             this.btnAddLivestock.TabIndex = 0;
             this.btnAddLivestock.Text = "Add Livestock";
             this.btnAddLivestock.UseVisualStyleBackColor = true;
+            this.btnAddLivestock.Click += new System.EventHandler(this.btnAddLivestock_Click);
             // 
             // btnSaveAndExit
             // 
@@ -63,6 +64,7 @@ namespace FarmFeedingAppV2
             this.btnFeedLivestock.TabIndex = 2;
             this.btnFeedLivestock.Text = "Feed Livestock";
             this.btnFeedLivestock.UseVisualStyleBackColor = true;
+            this.btnFeedLivestock.Click += new System.EventHandler(this.btnFeedLivestock_Click);
             // 
             // btnEditLivestockAndFoodCategories
             // 
