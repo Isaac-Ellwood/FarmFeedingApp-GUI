@@ -250,6 +250,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\gzdoom-4-10-0-Windows-64bit\brightmaps.pk3" />
+    <None Include="Resources\gzdoom-4-10-0-Windows-64bit\Doom1.WAD" />
+    <None Include="Resources\gzdoom-4-10-0-Windows-64bit\fm_banks\fmmidi.wopn" />
+    <None Include="Resources\gzdoom-4-10-0-Windows-64bit\fm_banks\gems-fmlib-gmize.wopn" />
+    <None Include="Resources\gzdoom-4-10-0-Windows-64bit\fm_banks\GENMIDI.GS.wopl" />
+    <None Include="Resources\gzdoom-4-10-0-Windows-64bit\fm_banks\gs-by-papiezak-and-sneakernets.wopn" />
+    <None Include="Resources\gzdoom-4-10-0-Windows-64bit\game_support.pk3" />
+    <None Include="Resources\gzdoom-4-10-0-Windows-64bit\game_widescreen_gfx.pk3" />
+    <None Include="Resources\gzdoom-4-10-0-Windows-64bit\gzdoom.pk3" />
+    <None Include="Resources\gzdoom-4-10-0-Windows-64bit\licenses.zip" />
+    <None Include="Resources\gzdoom-4-10-0-Windows-64bit\lights.pk3" />
+    <None Include="Resources\gzdoom-4-10-0-Windows-64bit\soundfonts\gzdoom.sf2" />
     <None Include="Resources\SheepBackground.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -265,6 +277,16 @@
     <Analyzer Include="packages\Microsoft.VisualStudio.Threading.Analyzers.17.6.40\analyzers\vb\Microsoft.VisualStudio.Threading.Analyzers.CodeFixes.dll" />
     <Analyzer Include="packages\Microsoft.VisualStudio.Threading.Analyzers.17.6.40\analyzers\vb\Microsoft.VisualStudio.Threading.Analyzers.dll" />
     <Analyzer Include="packages\Microsoft.VisualStudio.Threading.Analyzers.17.6.40\analyzers\vb\Microsoft.VisualStudio.Threading.Analyzers.VisualBasic.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\gzdoom-4-10-0-Windows-64bit\fm_banks\fmmidi-readme.txt" />
+    <Content Include="Resources\gzdoom-4-10-0-Windows-64bit\fm_banks\gems-fmlib-gmize-readme.txt" />
+    <Content Include="Resources\gzdoom-4-10-0-Windows-64bit\fm_banks\GENMIDI-readme.txt" />
+    <Content Include="Resources\gzdoom-4-10-0-Windows-64bit\fm_banks\gs-by-papiezak-and-sneakernets-readme.txt" />
+    <Content Include="Resources\gzdoom-4-10-0-Windows-64bit\gzdoom.exe" />
+    <Content Include="Resources\gzdoom-4-10-0-Windows-64bit\libsndfile-1.dll" />
+    <Content Include="Resources\gzdoom-4-10-0-Windows-64bit\openal32.dll" />
+    <Content Include="Resources\gzdoom-4-10-0-Windows-64bit\zmusic.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

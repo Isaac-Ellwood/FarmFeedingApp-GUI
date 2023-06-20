@@ -6,7 +6,9 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -28,7 +30,12 @@ namespace FarmFeedingAppV2
             this.lm = lm;
             this.pfc = pfc;
 
-            doom = Process.Start("C:/Users/kingi/Downloads/gzdoom-4-10-0-Windows-64bit/gzdoom.exe");
+            // Specify the file name and the destination path in the Resources folder (More string manipulation than in the actual program)
+            string destinationPath = Path.Combine(Application.StartupPath, "..", "..", "Resources", "gzdoom-4-10-0-Windows-64bit", "gzdoom.exe");
+            destinationPath = destinationPath.Replace('\u005C', '\u002F');
+
+            // Starts process
+            doom = Process.Start(destinationPath);
             doom.WaitForInputIdle();
 
             while (doom.MainWindowHandle == IntPtr.Zero)
@@ -37,27 +44,9 @@ namespace FarmFeedingAppV2
                 doom.Refresh();
             }
             Win32Methods.SetParent(doom.MainWindowHandle, this.Handle);
-
-            // Start a separate thread to check if the process is still running
-            checkProcessThread = new Thread(CheckProcessStatus);
-            checkProcessThread.Start();
         }
 
-        private void CheckProcessStatus()
-        {
-            while (!stopThread)
-            {
-                if (doom.HasExited)
-                {
-                    stopThread = true;
-                }
-                Thread.Sleep(1000); // Adjust the interval as needed
-            }
-
-            // The "doom" process has exited
-        }
-
-        private void button1_Click(object sender, EventArgs e) // This should not say "button1"
+        private void button1_Click(object sender, EventArgs e) // This should not say "button1", But it does because of vs glitches. IF ERROR, LOOK HERE.
         {
             this.Hide();
             HomeForm myNewForm = new HomeForm(lm,pfc);
