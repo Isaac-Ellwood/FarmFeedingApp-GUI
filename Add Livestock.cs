@@ -38,10 +38,15 @@ namespace FarmFeedingAppV2
 
         private void btnAddLivestock_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < cbx; i++)
+            for (int i = 0; i < nudLivestockCount.Value; i++)
             {
-
+                lm.AddLivestockHolder(cbxSpecies.SelectedIndex,cbxBreed.SelectedIndex);
             }
+
+            this.Hide();
+            HomeForm myNewForm = new HomeForm(lm, pfc, sm);
+            myNewForm.FormClosed += (s, args) => this.Close();
+            myNewForm.Show();
         }
     }
 }

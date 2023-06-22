@@ -130,9 +130,17 @@ namespace FarmFeedingAppV2
         }
 
         // Adds a livestock holder into livestockHolders list
-        public void AddLivestockHolder(LivestockHolder livestockHolder)
+        public void AddLivestockHolder(int species, int breed)
         {
-            livestockHolders.Add(livestockHolder);
+            LivestockHolder lh = new LivestockHolder(species, breed, IDGenerator(species,breed));
+            livestockHolders.Add(lh);
+        }
+
+        // Make IDs better and stuff. If u want lol
+        // THanks future Isaav
+        public string IDGenerator(int species, int breed)
+        {
+            return ($"{species}-{breed}#{livestockHolders.Count}");
         }
 
         // Returns livestockHolders length
@@ -220,7 +228,7 @@ namespace FarmFeedingAppV2
             {
                 // Creates livestockholder and adds it to livestock holder list
                 LivestockHolder livestockHolder = new LivestockHolder(saveData.lHoldersSpecies[i], saveData.lHoldersBreed[i], saveData.lHoldersID[i]);
-                AddLivestockHolder(livestockHolder);
+                livestockHolders.Add(livestockHolder);
 
                 // Pulls livestock data from 2d lists (prone to fails, so in try catch statements for now)
                 // Update: 8/06/2023 they are behaving themselves and are currently free from their try catch statements
