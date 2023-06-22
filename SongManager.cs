@@ -40,7 +40,6 @@ namespace FarmFeedingAppV2
             {
                 songTitle = songT;
             }
-            
 
             // Gets the destination path (thanks Isaac)
             string destinationPath = Path.Combine(Application.StartupPath, "..", "..", "Resources", "Songs", songTitle+".wav");
@@ -53,7 +52,14 @@ namespace FarmFeedingAppV2
 
         public void stopSong()
         {
-            song.Stop();
+            try
+            {
+                song.Stop();
+            }
+            catch
+            {
+
+            }
         }
     }
 }

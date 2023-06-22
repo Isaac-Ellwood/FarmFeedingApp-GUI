@@ -38,6 +38,7 @@ namespace FarmFeedingAppV2
             // 
             // btnAddLivestock
             // 
+            this.btnAddLivestock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnAddLivestock.Location = new System.Drawing.Point(154, 340);
             this.btnAddLivestock.Name = "btnAddLivestock";
             this.btnAddLivestock.Size = new System.Drawing.Size(249, 85);
@@ -79,6 +80,7 @@ namespace FarmFeedingAppV2
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.White;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(348, 94);
             this.lblTitle.Name = "lblTitle";
@@ -91,7 +93,7 @@ namespace FarmFeedingAppV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkCyan;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(23)))), ((int)(((byte)(38)))));
             this.BackgroundImage = global::FarmFeedingAppV2.Properties.Resources.SheepBackground;
             this.ClientSize = new System.Drawing.Size(1902, 999);
             this.Controls.Add(this.lblTitle);

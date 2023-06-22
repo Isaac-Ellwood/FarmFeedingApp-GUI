@@ -22,15 +22,18 @@ namespace FarmFeedingAppV2
         LivestockManager lm;
         PrivateFontCollection pfc;
         SongManager sm;
-        SoundPlayer song;
         bool saved = false;
 
         public HomeForm(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
         {
+            // Initialises and stuff
             InitializeComponent();
             this.lm = lm;
             this.pfc = pfc;
             this.sm = sm;
+
+            // Plays a fun tune
+            sm.playSong(true, "chillin39-20915");
 
             // Sets font
             lblTitle.Font = new Font(pfc.Families[2], lblTitle.Font.Size);
@@ -131,12 +134,15 @@ namespace FarmFeedingAppV2
 
         private void btnFeedLivestock_Click(object sender, EventArgs e)
         {
-            sm.playSong(true, "chillin39-20915");
+            
         }
 
         private void btnAddLivestock_Click(object sender, EventArgs e)
         {
-            sm.stopSong();
+            this.Hide();
+            Add_Livestock myNewForm = new Add_Livestock(lm, pfc, sm);
+            myNewForm.FormClosed += (s, args) => this.Close();
+            myNewForm.Show();
         }
     }
 }
