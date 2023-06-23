@@ -61,5 +61,13 @@ namespace FarmFeedingAppV2
 
             }
         }
+        async void Test()
+        {
+            using (song)
+            {
+                await Task.Run(() => { song.Load(); song.PlaySync(); });
+                MessageBox.Show("Finished. Now you can run your code here");
+            }
+        }
     }
 }

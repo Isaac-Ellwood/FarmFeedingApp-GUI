@@ -11,7 +11,6 @@ namespace FarmFeedingAppV2
     public class LivestockManager
     {
         // Attributes
-        List<string> livestockGroupIDs = new List<string>();
         List<LivestockHolder> livestockHolders = new List<LivestockHolder>();
 
         List<string> foods = new List<string>();

@@ -38,15 +38,45 @@ namespace FarmFeedingAppV2
 
         private void btnAddLivestock_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < nudLivestockCount.Value; i++)
+            // Checks that it has valid data in combo boxes
+            // Leaving invalid strings in will result in an index of -1
+            if (cbxSpecies.SelectedIndex >= 0 && cbxBreed.SelectedIndex >= 0)
             {
-                lm.AddLivestockHolder(cbxSpecies.SelectedIndex,cbxBreed.SelectedIndex);
-            }
+                for (int i = 0; i < nudLivestockCount.Value; i++)
+                {
+                    lm.AddLivestockHolder(cbxSpecies.SelectedIndex, cbxBreed.SelectedIndex);
+                }
 
-            this.Hide();
-            HomeForm myNewForm = new HomeForm(lm, pfc, sm);
-            myNewForm.FormClosed += (s, args) => this.Close();
-            myNewForm.Show();
+                this.Hide();
+                HomeForm myNewForm = new HomeForm(lm, pfc, sm);
+                myNewForm.FormClosed += (s, args) => this.Close();
+                myNewForm.Show();
+            }
+            else
+            {
+                // Cool string error mesasges.
+                string caption = "Data Error";
+                string text = "";
+                if (cbxSpecies.SelectedIndex < 0)
+                {
+                    text += "Species";
+                    if (cbxBreed.SelectedIndex < 0)
+                    {
+                        text += " and Breed are ";
+                    }
+                    else
+                    {
+                        text += " is ";
+                    }
+                    text += "invalid";
+                }
+                else
+                {
+                    text += "Breed is invalid";
+                }
+                text += "\n Try again";
+                MessageBox.Show(text, caption);
+            }
         }
     }
 }

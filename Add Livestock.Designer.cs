@@ -58,6 +58,11 @@ namespace FarmFeedingAppV2
             // nudLivestockCount
             // 
             this.nudLivestockCount.Location = new System.Drawing.Point(787, 291);
+            this.nudLivestockCount.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.nudLivestockCount.Name = "nudLivestockCount";
             this.nudLivestockCount.Size = new System.Drawing.Size(120, 20);
             this.nudLivestockCount.TabIndex = 2;
