@@ -142,6 +142,23 @@ namespace FarmFeedingAppV2
             return ($"{species}-{breed}#{livestockHolders.Count}");
         }
 
+        // Returns IDs
+        public List<string> GetIDList()
+        {
+            List<string> IDList = new List<string>();
+            for (int i = 0; i < livestockHolders.Count; i++)
+            {
+                IDList.Add(livestockHolders[i].ID);
+            }
+            return IDList;
+        }
+
+        // Returns food list
+        public List<string> GetFoodList()
+        {
+            return foods;
+        }
+
         // Returns livestockHolders length
         public int GetLivestockHoldersLength()
         {
