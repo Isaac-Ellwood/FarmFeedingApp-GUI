@@ -61,5 +61,11 @@ namespace FarmFeedingAppV2
         {
             cbxBreed.DataSource = lm.GetBreedsList()[cbxSpeciesOrID.SelectedIndex];
         }
+
+        private void btnFeedLivestock_Click(object sender, EventArgs e)
+        {
+            // Passes it all into the livestock manager
+            lm.feedLivestock(cbxGroup.SelectedIndex, cbxSpeciesOrID.SelectedIndex, cbxBreed.SelectedIndex, cbxFood.SelectedIndex, Decimal.ToInt32(nudFoodAmount.Value));
+        }
     }
 }

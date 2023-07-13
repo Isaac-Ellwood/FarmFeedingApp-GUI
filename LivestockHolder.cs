@@ -24,5 +24,11 @@ namespace FarmFeedingAppV2
             this.breed = breed;
             this.ID = ID;
         }
+
+        public void Feed(int foodType, int foodQuantity)
+        {
+            this.foodType.Add(foodType);
+            this.foodQuantity.Add(foodQuantity);
+        }
     }
 }

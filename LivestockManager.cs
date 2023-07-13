@@ -189,6 +189,48 @@ namespace FarmFeedingAppV2
             this.breedsList = breedsList;
         }
 
+        // Feeds livestock
+        public void feedLivestock(int mode, int speciesOrID, int breed, int foodType, int foodQuantity)
+        {
+            // Modes 0-3 in the same order {"All","By species","By breed","By ID"}
+            if (mode == 0)
+            {
+                // Loop through all livestock holders and feed all of them
+                for (int i = 0; i < livestockHolders.Count; i++)
+                {
+                    livestockHolders[i].Feed(foodType, foodQuantity);
+                }
+            }
+            else if (mode == 1)
+            {
+                for (int i = 0; i < livestockHolders.Count; i++)
+                {
+                    // Loop through all livestock holders and feed them if they are in the right species
+                    if (livestockHolders[i].species == speciesOrID)
+                    {
+                        livestockHolders[i].Feed(foodType, foodQuantity);
+                    }
+                }
+            }
+            else if (mode == 2)
+            {
+                for (int i = 0; i < livestockHolders.Count; i++)
+                {
+                    // Loop through all livestock holders and feed them if they are in the right species AND breed
+                    if (livestockHolders[i].species == speciesOrID && livestockHolders[i].breed == breed)
+                    {
+                        livestockHolders[i].Feed(foodType, foodQuantity);
+                    }
+                }
+            }
+            else
+            {
+                // Just the ID Index, whoch should be equal to the livestockHolders index for the same object.
+                // TODO: Check if this works
+                livestockHolders[speciesOrID].Feed(foodType, foodQuantity);
+            }
+        }
+
         // Returns food history as string for the last (time) days
         public string foodHistory(int animal, int time)
         {
