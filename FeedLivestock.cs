@@ -47,7 +47,7 @@ namespace FarmFeedingAppV2
                 cbxSpeciesOrID.Show();
                 cbxBreed.Show();
                 cbxSpeciesOrID.DataSource = lm.GetSpeciesList();
-                cbxSpeciesOrID.DataSource = lm.GetBreedsList();
+                cbxBreed.DataSource = lm.GetBreedsList()[cbxSpeciesOrID.SelectedIndex];
             }
             else
             {
@@ -59,7 +59,7 @@ namespace FarmFeedingAppV2
 
         private void cbxSpeciesOrID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            cbxBreed.DataSource = lm.GetBreedsList()[cbxSpeciesOrID.SelectedIndex];
         }
     }
 }
