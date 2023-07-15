@@ -59,7 +59,12 @@ namespace FarmFeedingAppV2
 
         private void cbxSpeciesOrID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbxBreed.DataSource = lm.GetBreedsList()[cbxSpeciesOrID.SelectedIndex];
+            // Updates the breed combo box, if feeding anything except ID
+            // It would error before, but it's fixed :)
+            if (cbxGroup.SelectedIndex <= 2)
+            {
+                cbxBreed.DataSource = lm.GetBreedsList()[cbxSpeciesOrID.SelectedIndex];
+            }
         }
 
         private void btnFeedLivestock_Click(object sender, EventArgs e)
