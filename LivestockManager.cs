@@ -190,8 +190,9 @@ namespace FarmFeedingAppV2
         }
 
         // Feeds livestock
-        public void feedLivestock(int mode, int speciesOrID, int breed, int foodType, int foodQuantity)
+        public int FeedLivestock(int mode, int speciesOrID, int breed, int foodType, int foodQuantity)
         {
+            int count = 0;
             // Modes 0-3 in the same order {"All","By species","By breed","By ID"}
             if (mode == 0)
             {
@@ -199,6 +200,7 @@ namespace FarmFeedingAppV2
                 for (int i = 0; i < livestockHolders.Count; i++)
                 {
                     livestockHolders[i].Feed(foodType, foodQuantity);
+                    count++;
                 }
             }
             else if (mode == 1)
@@ -209,6 +211,7 @@ namespace FarmFeedingAppV2
                     if (livestockHolders[i].species == speciesOrID)
                     {
                         livestockHolders[i].Feed(foodType, foodQuantity);
+                        count++;
                     }
                 }
             }
@@ -220,6 +223,7 @@ namespace FarmFeedingAppV2
                     if (livestockHolders[i].species == speciesOrID && livestockHolders[i].breed == breed)
                     {
                         livestockHolders[i].Feed(foodType, foodQuantity);
+                        count++;
                     }
                 }
             }
@@ -228,11 +232,14 @@ namespace FarmFeedingAppV2
                 // Just the ID Index, whoch should be equal to the livestockHolders index for the same object.
                 // TODO: Check if this works
                 livestockHolders[speciesOrID].Feed(foodType, foodQuantity);
+                count++;
             }
+
+            return count;
         }
 
         // Returns food history as string for the last (time) days
-        public string foodHistory(int animal, int time)
+        public string FoodHistory(int animal, int time)
         {
             // Creates temp lists
             List<float> foodQuantityHistory = new List<float>();

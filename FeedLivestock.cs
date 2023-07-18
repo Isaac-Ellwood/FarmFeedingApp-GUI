@@ -61,6 +61,7 @@ namespace FarmFeedingAppV2
         {
             // Updates the breed combo box, if feeding anything except ID
             // It would error before, but it's fixed :)
+            // Hopefully
             if (cbxGroup.SelectedIndex <= 2)
             {
                 cbxBreed.DataSource = lm.GetBreedsList()[cbxSpeciesOrID.SelectedIndex];
@@ -70,7 +71,29 @@ namespace FarmFeedingAppV2
         private void btnFeedLivestock_Click(object sender, EventArgs e)
         {
             // Passes it all into the livestock manager
-            lm.feedLivestock(cbxGroup.SelectedIndex, cbxSpeciesOrID.SelectedIndex, cbxBreed.SelectedIndex, cbxFood.SelectedIndex, Decimal.ToInt32(nudFoodAmount.Value));
+            int fedLivestock = lm.FeedLivestock(cbxGroup.SelectedIndex, cbxSpeciesOrID.SelectedIndex, cbxBreed.SelectedIndex, cbxFood.SelectedIndex, Decimal.ToInt32(nudFoodAmount.Value));
+
+            // Shows message box based on sucess or failure
+            // TODO: change error messages
+            string title;
+            string caption;
+
+            if (fedLivestock > 0)
+            {
+                title = "Success!";
+                caption = $"{fedLivestock} livestock have been fed sucessfully";
+            }
+            else
+            {
+                title = "Error";
+                caption = "Not enough animals in selected class";
+            }
+            MessageBox.Show(caption, title);
+        }
+
+        public override string ToString()
+        {
+            return "";
         }
     }
 }
