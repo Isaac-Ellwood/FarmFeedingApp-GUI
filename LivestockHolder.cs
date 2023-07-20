@@ -25,10 +25,11 @@ namespace FarmFeedingAppV2
             this.ID = ID;
         }
 
-        public void Feed(int foodType, int foodQuantity)
+        public void Feed(int foodType, int foodQuantity, DateTime currentDate)
         {
             this.foodType.Add(foodType);
             this.foodQuantity.Add(foodQuantity);
+            this.dates.Add(currentDate);
         }
     }
 }

@@ -13,6 +13,10 @@ namespace FarmFeedingAppV2
         // Attributes
         List<LivestockHolder> livestockHolders = new List<LivestockHolder>();
 
+        // Sets the current date and time
+        // TODO: alow manual changing of date
+        DateTime currentDate = DateTime.Today;
+
         List<string> foods = new List<string>();
         List<float> foodPrices = new List<float>();
         List<string> speciesList = new List<string>();
@@ -24,7 +28,6 @@ namespace FarmFeedingAppV2
         // Constructs a Livestock Manager object
         public LivestockManager()
         {
-            
         }
 
         // Sets livestock manager data to defaults
@@ -199,7 +202,7 @@ namespace FarmFeedingAppV2
                 // Loop through all livestock holders and feed all of them
                 for (int i = 0; i < livestockHolders.Count; i++)
                 {
-                    livestockHolders[i].Feed(foodType, foodQuantity);
+                    livestockHolders[i].Feed(foodType, foodQuantity, currentDate);
                     count++;
                 }
             }
@@ -210,7 +213,7 @@ namespace FarmFeedingAppV2
                     // Loop through all livestock holders and feed them if they are in the right species
                     if (livestockHolders[i].species == speciesOrID)
                     {
-                        livestockHolders[i].Feed(foodType, foodQuantity);
+                        livestockHolders[i].Feed(foodType, foodQuantity, currentDate);
                         count++;
                     }
                 }
@@ -222,7 +225,7 @@ namespace FarmFeedingAppV2
                     // Loop through all livestock holders and feed them if they are in the right species AND breed
                     if (livestockHolders[i].species == speciesOrID && livestockHolders[i].breed == breed)
                     {
-                        livestockHolders[i].Feed(foodType, foodQuantity);
+                        livestockHolders[i].Feed(foodType, foodQuantity, currentDate);
                         count++;
                     }
                 }
@@ -231,11 +234,33 @@ namespace FarmFeedingAppV2
             {
                 // Just the ID Index, whoch should be equal to the livestockHolders index for the same object.
                 // TODO: Check if this works
-                livestockHolders[speciesOrID].Feed(foodType, foodQuantity);
+                livestockHolders[speciesOrID].Feed(foodType, foodQuantity, currentDate);
                 count++;
             }
 
             return count;
+        }
+
+        // Returns history list
+        public List<int> ReturnHistoryList(int mode, int length)
+        {
+            List<int> historyList = new List<int>();
+            // Modes:
+            // 1. X: date Y: total quantity of food consumed
+            foreach (LivestockHolder lh in livestockHolders)
+            {
+                for (int i = 0; i < lh.dates.Count; i++)
+                {
+                    for (int dateIndex = 0; dateIndex < length; dateIndex++)
+                    {
+                        if (lh.dates[dateIndex] == currentDate.AddDays(-(length - dateIndex)))
+                        {
+                            historyList.Add((int)lh.foodQuantity[dateIndex]);
+                        }
+                    }
+                }
+            }
+            return new List<int>();
         }
 
         // Returns food history as string for the last (time) days
