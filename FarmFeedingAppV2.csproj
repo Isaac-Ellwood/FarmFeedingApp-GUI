@@ -244,6 +244,9 @@
     <EmbeddedResource Include="Add Livestock.resx">
       <DependentUpon>Add Livestock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DisplayData.resx">
+      <DependentUpon>DisplayData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DoomHolder.resx">
       <DependentUpon>DoomHolder.cs</DependentUpon>
     </EmbeddedResource>

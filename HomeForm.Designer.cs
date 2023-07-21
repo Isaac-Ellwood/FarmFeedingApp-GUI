@@ -34,6 +34,7 @@ namespace FarmFeedingAppV2
             this.btnFeedLivestock = new System.Windows.Forms.Button();
             this.btnEditLivestockAndFoodCategories = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnDisplayData = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddLivestock
@@ -89,6 +90,16 @@ namespace FarmFeedingAppV2
             this.lblTitle.Text = "Farm Feeding App";
             this.lblTitle.UseCompatibleTextRendering = true;
             // 
+            // btnDisplayData
+            // 
+            this.btnDisplayData.Location = new System.Drawing.Point(154, 657);
+            this.btnDisplayData.Name = "btnDisplayData";
+            this.btnDisplayData.Size = new System.Drawing.Size(249, 85);
+            this.btnDisplayData.TabIndex = 5;
+            this.btnDisplayData.Text = "Display Data";
+            this.btnDisplayData.UseVisualStyleBackColor = true;
+            this.btnDisplayData.Click += new System.EventHandler(this.btnDisplayData_Click);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -96,6 +107,7 @@ namespace FarmFeedingAppV2
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(23)))), ((int)(((byte)(38)))));
             this.BackgroundImage = global::FarmFeedingAppV2.Properties.Resources.SheepBackground;
             this.ClientSize = new System.Drawing.Size(1902, 999);
+            this.Controls.Add(this.btnDisplayData);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnEditLivestockAndFoodCategories);
             this.Controls.Add(this.btnFeedLivestock);
@@ -117,6 +129,7 @@ namespace FarmFeedingAppV2
         private System.Windows.Forms.Button btnFeedLivestock;
         private System.Windows.Forms.Button btnEditLivestockAndFoodCategories;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnDisplayData;
     }
 }
 

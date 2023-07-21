@@ -147,5 +147,13 @@ namespace FarmFeedingAppV2
             myNewForm.FormClosed += (s, args) => this.Close();
             myNewForm.Show();
         }
+
+        private void btnDisplayData_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DisplayData myNewForm = new DisplayData(lm, pfc, sm);
+            myNewForm.FormClosed += (s, args) => this.Close();
+            myNewForm.Show();
+        }
     }
 }

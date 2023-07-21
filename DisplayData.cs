@@ -14,24 +14,45 @@ namespace FarmFeedingAppV2
 {
     public partial class DisplayData : Form
     {
-        Chart chart;
         LivestockManager lm;
         PrivateFontCollection pfc;
         SongManager sm;
 
-        public DisplayData()
+        List<Series> series;
+
+
+        public DisplayData(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
         {
             InitializeComponent();
+            this.lm = lm;
+            this.pfc = pfc;
+            this.sm = sm;
+
+            series = new List<Series>();
+        }
+
+        private void DisplayData_Load(object sender, EventArgs e)
+        {
+            
         }
 
         private void UpdateChart(int length)
         {
-            lm.ReturnHistoryList(1, length);
+            series.Add(new Series());
+
+            List<int> chartList = lm.ReturnHistoryList(1, length);
 
             for (int i = 0; i < length; i++)
             {
-                //chart.Series["seriesname"].Points.AddXY();
+                series[series.Count - 1].Points.Add(i,chartList[i]);
             }
+
+            chtStatGraph.Update();
+        }
+
+        private void btnUpdateGraph_Click(object sender, EventArgs e)
+        {
+            UpdateChart(5);
         }
     }
 }
