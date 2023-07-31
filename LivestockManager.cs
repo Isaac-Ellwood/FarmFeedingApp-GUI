@@ -253,14 +253,25 @@ namespace FarmFeedingAppV2
                 {
                     for (int dateIndex = 0; dateIndex < length; dateIndex++)
                     {
-                        if (lh.dates[dateIndex] == currentDate.AddDays(-(length - dateIndex)))
+                        // FIXES ALL MY PROBLEMS
+                        // Checks if the index will be in range
+                        if (-(length - dateIndex) <= 0)
                         {
-                            historyList.Add((int)lh.foodQuantity[dateIndex]);
+                            if (lh.dates[dateIndex] == currentDate.AddDays(-(length - dateIndex)))
+                            {
+
+                                historyList.Add((int)lh.foodQuantity[dateIndex]);
+
+                            }
+                        }
+                        else
+                        {
+                            return historyList;
                         }
                     }
                 }
             }
-            return new List<int>();
+            return historyList;
         }
 
         // Returns food history as string for the last (time) days

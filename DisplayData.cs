@@ -41,18 +41,24 @@ namespace FarmFeedingAppV2
             series.Add(new Series());
 
             List<int> chartList = lm.ReturnHistoryList(1, length);
+            //List<int> chartList = new List<int>() {100,2,6,6,7,7,6,5,5,4,4,6,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,100 };
 
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < chartList.Count; i++)
             {
-                series[series.Count - 1].Points.Add(i,chartList[i]);
+                series[series.Count - 1].Points.Add(chartList[i],i);
             }
+            series[series.Count-1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+
+            chtStatGraph.Series.Add(series[series.Count - 1]);
 
             chtStatGraph.Update();
         }
 
         private void btnUpdateGraph_Click(object sender, EventArgs e)
         {
-            UpdateChart(5);
+            // Updates chart to the right length :) very handy.
+            // I know, thanks. I also made sure that it works with lengths that are too high, as it defaults to the highest value.
+            UpdateChart(100);
         }
     }
 }
