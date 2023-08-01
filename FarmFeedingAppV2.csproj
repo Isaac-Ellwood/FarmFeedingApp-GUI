@@ -223,6 +223,12 @@
     <Compile Include="DoomHolder.Designer.cs">
       <DependentUpon>DoomHolder.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCategories.Designer.cs">
+      <DependentUpon>EditCategories.cs</DependentUpon>
+    </Compile>
     <Compile Include="FeedLivestock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DoomHolder.resx">
       <DependentUpon>DoomHolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCategories.resx">
+      <DependentUpon>EditCategories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FeedLivestock.resx">
       <DependentUpon>FeedLivestock.cs</DependentUpon>

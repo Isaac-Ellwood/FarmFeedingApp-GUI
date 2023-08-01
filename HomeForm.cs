@@ -125,7 +125,7 @@ namespace FarmFeedingAppV2
         private void btnEditLivestockAndFoodCategories_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DoomHolder myNewForm = new DoomHolder(lm, pfc, sm);
+            EditCategories myNewForm = new EditCategories(lm, pfc, sm);
             myNewForm.FormClosed += (s, args) => this.Close();
             myNewForm.Show();
         }

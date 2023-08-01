@@ -72,7 +72,7 @@ namespace FarmFeedingAppV2
         {
             // Passes it all into the livestock manager
             int fedLivestock = lm.FeedLivestock(cbxGroup.SelectedIndex, cbxSpeciesOrID.SelectedIndex, cbxBreed.SelectedIndex, cbxFood.SelectedIndex, Decimal.ToInt32(nudFoodAmount.Value), dtpFeedDate.Value);
-
+            
             // Shows message box based on sucess or failure
             // TODO: change error messages
             string title;
