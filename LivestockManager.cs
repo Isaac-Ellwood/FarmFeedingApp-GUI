@@ -193,7 +193,7 @@ namespace FarmFeedingAppV2
         }
 
         // Feeds livestock
-        public int FeedLivestock(int mode, int speciesOrID, int breed, int foodType, int foodQuantity)
+        public int FeedLivestock(int mode, int speciesOrID, int breed, int foodType, int foodQuantity, DateTime date)
         {
             int count = 0;
             // Modes 0-3 in the same order {"All","By species","By breed","By ID"}
@@ -202,7 +202,7 @@ namespace FarmFeedingAppV2
                 // Loop through all livestock holders and feed all of them
                 for (int i = 0; i < livestockHolders.Count; i++)
                 {
-                    livestockHolders[i].Feed(foodType, foodQuantity, currentDate);
+                    livestockHolders[i].Feed(foodType, foodQuantity, date);
                     count++;
                 }
             }
@@ -213,7 +213,7 @@ namespace FarmFeedingAppV2
                     // Loop through all livestock holders and feed them if they are in the right species
                     if (livestockHolders[i].species == speciesOrID)
                     {
-                        livestockHolders[i].Feed(foodType, foodQuantity, currentDate);
+                        livestockHolders[i].Feed(foodType, foodQuantity, date);
                         count++;
                     }
                 }
@@ -225,7 +225,7 @@ namespace FarmFeedingAppV2
                     // Loop through all livestock holders and feed them if they are in the right species AND breed
                     if (livestockHolders[i].species == speciesOrID && livestockHolders[i].breed == breed)
                     {
-                        livestockHolders[i].Feed(foodType, foodQuantity, currentDate);
+                        livestockHolders[i].Feed(foodType, foodQuantity, date);
                         count++;
                     }
                 }
@@ -234,7 +234,7 @@ namespace FarmFeedingAppV2
             {
                 // Just the ID Index, whoch should be equal to the livestockHolders index for the same object.
                 // TODO: Check if this works
-                livestockHolders[speciesOrID].Feed(foodType, foodQuantity, currentDate);
+                livestockHolders[speciesOrID].Feed(foodType, foodQuantity, date);
                 count++;
             }
 
@@ -251,22 +251,11 @@ namespace FarmFeedingAppV2
             {
                 for (int i = 0; i < lh.dates.Count; i++)
                 {
-                    for (int dateIndex = 0; dateIndex < length; dateIndex++)
+                    for (int dateIndex = -length; dateIndex < 1; dateIndex++)
                     {
-                        // FIXES ALL MY PROBLEMS
-                        // Checks if the index will be in range
-                        if (-(length - dateIndex) <= 0)
+                        if (lh.dates[i] == currentDate.AddDays(dateIndex))
                         {
-                            if (lh.dates[dateIndex] == currentDate.AddDays(-(length - dateIndex)))
-                            {
-
-                                historyList.Add((int)lh.foodQuantity[dateIndex]);
-
-                            }
-                        }
-                        else
-                        {
-                            return historyList;
+                            historyList[i] += ((int)lh.foodQuantity[i]);
                         }
                     }
                 }
