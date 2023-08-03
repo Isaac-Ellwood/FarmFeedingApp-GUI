@@ -29,8 +29,48 @@ namespace FarmFeedingAppV2
             this.lm = lm;
             this.pfc = pfc;
             this.sm = sm;
+
+            cbxGroup.DataSource = new List<string>() {"Species","Breed"};
+            cbxSpecies.DataSource = lm.GetSpeciesList();
+            cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
         }
 
-        
+        private void cbxGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ()
+            {
+
+            }
+        }
+
+        private void cbxSpecies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxSpecies.SelectedIndex < 0)
+            {
+                // Changes source to be none
+                List<string> emptyString = new List<string>() { "" };
+                cbxBreed.DataSource = emptyString;
+            }
+            else
+            {
+                // Changes to be in line with species
+                cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
+            }
+        }
+
+        private void cbxBreed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
