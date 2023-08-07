@@ -35,11 +35,16 @@ namespace FarmFeedingAppV2
             cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
         }
 
+        // Shows/Hides Breed combo box based on choice
         private void cbxGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ()
+            if (cbxGroup.SelectedIndex == 0)
             {
-
+                cbxBreed.Hide();
+            }
+            else if (cbxGroup.SelectedIndex == 1)
+            {
+                cbxBreed.Show();
             }
         }
 
@@ -65,7 +70,14 @@ namespace FarmFeedingAppV2
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string breed = cbxBreed.Text;
 
+            if (cbxGroup.SelectedIndex == 0)
+            {
+                breed = "";
+            }
+
+            lm.AddSpeciesBreedType(cbxSpecies.SelectedIndex, cbxSpecies.Text, breed);
         }
 
         private void btnRemove_Click(object sender, EventArgs e)

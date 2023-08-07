@@ -263,42 +263,25 @@ namespace FarmFeedingAppV2
             return historyList;
         }
 
-        // Returns food history as string for the last (time) days
-        public string FoodHistory(int animal, int time)
+        // Add species/breed type
+        public void AddSpeciesBreedType(int speciesIndex, string species, string breed)
         {
-            // Creates temp lists
-            List<float> foodQuantityHistory = new List<float>();
-            List<int> foodTypeHistory = new List<int>();
-            List<DateTime> datesHistory = new List<DateTime>();
-
-            float totalFoodCost = 0f;
-
-            // Adds food history to temp lists
-            for (int i = 0; i < time; i++)
+            if (breed == "")
             {
-                foodQuantityHistory.Add(livestockHolders[animal].foodQuantity[livestockHolders[animal].foodQuantity.Count - time + i]);
-                foodTypeHistory.Add(livestockHolders[animal].foodType[livestockHolders[animal].foodType.Count - time + i]);
-                datesHistory.Add(livestockHolders[animal].dates[livestockHolders[animal].dates.Count - time + i]);
+                if (speciesList.Contains(species))
+                {
+
+                }
+                else
+                {
+                    speciesList.Add(species);
+                }
             }
-
-
-            // Converts lists to string and returns
-            string foodHistory = "";
-
-            foodHistory += $"Species: {speciesList[livestockHolders[animal].species]}\n" +
-                $"Breed: {breedsList[livestockHolders[animal].species][livestockHolders[animal].breed]}\n" +
-                $"ID: {livestockHolders[animal].ID}\n";
-
-            for (int i = 0; i < time; i++)
+            else
             {
-                foodHistory += $"Date: {datesHistory[i].Day}/{datesHistory[i].Month}/{datesHistory[i].Year} Type: {this.foods[foodTypeHistory[i]]} Quanitity: {foodQuantityHistory[i]}g\n";
-
-                totalFoodCost += (foodQuantityHistory[i] * foodPrices[foodTypeHistory[i]]);
+                speciesList.Add(species);
+                
             }
-
-            foodHistory += ($"Total cost: ${totalFoodCost}");
-
-            return foodHistory;
         }
 
         // Deserialises and sets save data
