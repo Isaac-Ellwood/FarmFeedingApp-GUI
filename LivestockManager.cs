@@ -268,9 +268,10 @@ namespace FarmFeedingAppV2
         {
             if (breed == "")
             {
+                // Just new Species
                 if (speciesList.Contains(species))
                 {
-
+                    return;
                 }
                 else
                 {
@@ -279,9 +280,68 @@ namespace FarmFeedingAppV2
             }
             else
             {
-                speciesList.Add(species);
+                // Just new breed!
+                // Will add if species exists and breed does not
+                if (speciesList.Contains(species) && BreedCheckExists(breed) == false)
+                {
+                    try
+                    {
+                        breedsList[speciesIndex].Add(breed);
+                    }
+                    catch (Exception)
+                    {
+                        return;
+                    }
+                }
+                // New species, new breed!!!
+                else
+                {
+                    // Redundant checks tbh, but it's okay.
+                    if (speciesList.Contains(species) && BreedCheckExists(breed) == true)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        speciesList.Add(species);
+                        List<string> newBreedString = new List<string>() { breed };
+                        breedsList.Add(newBreedString);
+                    }
+                }
+            }
+        }
+
+        public void RemoveSpeciesBreedType(int speciesIndex, int breedIndex)
+        {
+
+        }
+
+        // Checks if breed already exists across all stored breeds currently.
+        // True = it exists
+        // False = it does not exist
+        bool BreedCheckExists(string breedToCheck)
+        {
+            for (int speciesIndex = 0; speciesIndex < speciesList.Count; speciesIndex++)
+            {
+                // Try catch will work, it checks it correctly. (hopefully)
+                try
+                {
+                    // Couldv'e just used List.Contains, but that would be boring lol.
+                    for (int breedIndex = 0; breedIndex < breedsList[speciesIndex].Count; breedIndex++)
+                    {
+                        if (breedsList[speciesIndex][breedIndex] == breedToCheck)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                catch
+                {
+                    return false;
+                }
                 
             }
+            return false;
         }
 
         // Deserialises and sets save data

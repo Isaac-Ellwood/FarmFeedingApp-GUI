@@ -64,7 +64,16 @@ namespace FarmFeedingAppV2
             // Hopefully
             if (cbxGroup.SelectedIndex <= 2)
             {
-                cbxBreed.DataSource = lm.GetBreedsList()[cbxSpeciesOrID.SelectedIndex];
+                try
+                {
+                    cbxBreed.DataSource = lm.GetBreedsList()[cbxSpeciesOrID.SelectedIndex];
+                }
+                catch (Exception)
+                {
+                    // Changes source to be none
+                    List<string> emptyString = new List<string>() { "" };
+                    cbxBreed.DataSource = emptyString;
+                }
             }
         }
 

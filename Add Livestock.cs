@@ -33,7 +33,16 @@ namespace FarmFeedingAppV2
         // Changes Breed combo box to display breeds for each species
         private void cbxSpecies_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
+            try
+            {
+                cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
+            }
+            catch (Exception)
+            {
+                // Changes source to be none
+                List<string> emptyString = new List<string>() { "" };
+                cbxBreed.DataSource = emptyString;
+            }
         }
 
         private void btnAddLivestock_Click(object sender, EventArgs e)
