@@ -87,52 +87,67 @@ namespace FarmFeedingAppV2
             }
 
             lm.AddSpeciesBreedType(cbxSpecies.SelectedIndex, cbxSpecies.Text, breed);
+            updateData();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            lm.RemoveSpeciesBreedType(cbxSpecies.SelectedIndex, cbxBreed.SelectedIndex);
+            lm.RemoveSpeciesBreedType(cbxGroup.SelectedIndex,cbxSpecies.SelectedIndex, cbxBreed.SelectedIndex);
             updateData();
         }
 
         private void updateData()
         {
-            int speciesIndex = cbxSpecies.SelectedIndex;
-            int breedIndex = cbxBreed.SelectedIndex;
 
-            cbxSpecies.DataSource = lm.GetSpeciesList();
-            cbxBreed.DataSource = lm.GetSpeciesList();
+            this.Hide();
+            EditCategories myNewForm = new EditCategories(lm, pfc, sm);
+            myNewForm.FormClosed += (s, args) => this.Close();
+            myNewForm.Show();
 
-            // This code accomplishes the same task as-
-            funWithRecursion(speciesIndex, 100);
-            // This code
-            // Basically if the breed or species is deleted before the update function is called, it will default to the last one.
-            try
-            {
-                cbxBreed.SelectedIndex = breedIndex;
-            }
-            catch
-            {
-                cbxBreed.SelectedIndex = breedIndex - 1;
-            }
+            //int speciesIndex = cbxSpecies.SelectedIndex;
+            //int breedIndex = cbxBreed.SelectedIndex;
+            //
+            //cbxSpecies.DataSource = lm.GetSpeciesList();
+            //cbxSpecies.
+            //cbxSpecies.Update();
+            //try
+            //{
+            //    cbxSpecies.SelectedIndex = speciesIndex;
+            //}
+            //catch
+            //{
+            //    cbxSpecies.SelectedIndex = speciesIndex - 1;
+            //}
+            //
+            //// Changes to be in line with species
+            //try
+            //{
+            //    cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
+            //}
+            //catch (Exception)
+            //{
+            //    // Changes source to be none
+            //    List<string> emptyString = new List<string>() { "" };
+            //    cbxBreed.DataSource = emptyString;
+            //}
         }
 
-        // This is unnessecary and dumb tbh. I just wanted to use recursion once.
-        private void funWithRecursion(int index, int depth)
-        {
-            if (depth <= 0 | index < 0) return;
-            else
-            {
-                try
-                {
-                    cbxSpecies.SelectedIndex = index;
-                    return;
-                }
-                catch
-                {
-                    funWithRecursion(index - 1, depth - 1);
-                }
-            }
-        }
+        //// This is unnessecary and dumb tbh. I just wanted to use recursion once.
+        //private void funWithRecursion(int index, int depth)
+        //{
+        //    if (depth <= 0 | index < 0) return;
+        //    else
+        //    {
+        //        try
+        //        {
+        //            cbxSpecies.SelectedIndex = index;
+        //            return;
+        //        }
+        //        catch
+        //        {
+        //            funWithRecursion(index - 1, depth - 1);
+        //        }
+        //    }
+        //}
     }
 }

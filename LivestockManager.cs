@@ -276,6 +276,7 @@ namespace FarmFeedingAppV2
                 else
                 {
                     speciesList.Add(species);
+                    breedsList.Add(new List<string>() { });
                 }
             }
             else
@@ -311,9 +312,24 @@ namespace FarmFeedingAppV2
             }
         }
 
-        public void RemoveSpeciesBreedType(int speciesIndex, int breedIndex)
+        public void RemoveSpeciesBreedType(int group, int speciesIndex, int breedIndex)
         {
+            // Removing species
+            if (group == 0 && speciesIndex >= 0)
+            {
+                speciesList.RemoveAt(speciesIndex);
+                breedsList.RemoveAt(speciesIndex);
+            }
+            // Removing breed
+            else if (group == 1 && speciesIndex >= 0 && breedIndex >= 0)
+            {
+                breedsList[speciesIndex].RemoveAt(breedIndex);
+            }
+            // Failed
+            else
+            {
 
+            }
         }
 
         // Checks if breed already exists across all stored breeds currently.
