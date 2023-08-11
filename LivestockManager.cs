@@ -242,9 +242,9 @@ namespace FarmFeedingAppV2
         }
 
         // Returns history list
-        public List<int> ReturnHistoryList(int mode, int length)
+        public int[] ReturnHistoryArray(int mode, int length)
         {
-            List<int> historyList = new List<int>();
+            int[] historyArray = new int[length];
             // Modes:
             // 1. X: date Y: total quantity of food consumed
             foreach (LivestockHolder lh in livestockHolders)
@@ -253,14 +253,14 @@ namespace FarmFeedingAppV2
                 {
                     for (int dateIndex = -length; dateIndex < 1; dateIndex++)
                     {
-                        if (lh.dates[i] == currentDate.AddDays(dateIndex))
+                        if (lh.dates[i].Date == currentDate.AddDays(dateIndex))
                         {
-                            historyList[i] += ((int)lh.foodQuantity[i]);
+                            historyArray[i] += ((int)lh.foodQuantity[i]);
                         }
                     }
                 }
             }
-            return historyList;
+            return historyArray;
         }
 
         // Add species/breed type

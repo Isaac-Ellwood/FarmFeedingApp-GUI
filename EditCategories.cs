@@ -32,7 +32,17 @@ namespace FarmFeedingAppV2
 
             cbxGroup.DataSource = new List<string>() {"Species","Breed"};
             cbxSpecies.DataSource = lm.GetSpeciesList();
-            cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
+            // Changes to be in line with species
+            try
+            {
+                cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
+            }
+            catch (Exception)
+            {
+                // Changes source to be none
+                List<string> emptyString = new List<string>() { "" };
+                cbxBreed.DataSource = emptyString;
+            }
         }
 
         // Shows/Hides Breed combo box based on choice
@@ -62,12 +72,14 @@ namespace FarmFeedingAppV2
                 try
                 {
                     cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
+                    cbxBreed.SelectedIndex = 0;
                 }
                 catch (Exception)
                 {
                     // Changes source to be none
                     List<string> emptyString = new List<string>() { "" };
                     cbxBreed.DataSource = emptyString;
+                    cbxBreed.SelectedIndex = 0;
                 }
             }
         }

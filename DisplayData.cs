@@ -20,6 +20,7 @@ namespace FarmFeedingAppV2
 
         List<Series> series;
 
+        DateTime currentDate = DateTime.Today;
 
         public DisplayData(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
         {
@@ -27,8 +28,6 @@ namespace FarmFeedingAppV2
             this.lm = lm;
             this.pfc = pfc;
             this.sm = sm;
-
-            series = new List<Series>();
         }
 
         private void DisplayData_Load(object sender, EventArgs e)
@@ -38,18 +37,27 @@ namespace FarmFeedingAppV2
 
         private void UpdateChart(int length)
         {
-            series.Add(new Series());
+            Series series = new Series();
+            series.ChartType = SeriesChartType.Line;
 
-            List<int> chartList = lm.ReturnHistoryList(1, length);
-            //List<int> chartList = new List<int>() {100,2,6,6,7,7,6,5,5,4,4,6,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,100 };
+            int[] chartArray = lm.ReturnHistoryArray(1, length);
 
-            for (int i = 0; i < chartList.Count; i++)
+            Array.Reverse(chartArray);
+
+            for (int i = 0; i < chartArray.Length; i++)
             {
-                series[series.Count - 1].Points.Add(chartList[i],i);
+                series.Points.Add(chartArray[i], i);
             }
-            series[series.Count-1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
 
-            chtStatGraph.Series.Add(series[series.Count - 1]);
+            // Out with the old series, in with the new one.
+            chtStatGraph.Series.RemoveAt(0);
+            chtStatGraph.Series.Add(series);
+
+            // Displays dates on x axis
+            for (int i = 0; i < chartArray.Length; i++)
+            {
+                chtStatGraph.Series[0].Points[i].AxisLabel = $"{currentDate.AddDays(-length + i).Day}/{currentDate.AddDays(-length + i).Month}";
+            }
 
             chtStatGraph.Update();
         }
@@ -57,7 +65,6 @@ namespace FarmFeedingAppV2
         private void btnUpdateGraph_Click(object sender, EventArgs e)
         {
             // Updates chart to the right length :) very handy.
-            // I know, thanks. I also made sure that it works with lengths that are too high, as it defaults to the highest value.
             UpdateChart(100);
         }
     }
