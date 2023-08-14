@@ -242,20 +242,67 @@ namespace FarmFeedingAppV2
         }
 
         // Returns history list
-        public int[] ReturnHistoryArray(int mode, int length)
+        public int[] ReturnHistoryArray(int mode, int length, int species, int breed)
         {
             int[] historyArray = new int[length];
             // Modes:
             // 1. X: date Y: total quantity of food consumed
-            foreach (LivestockHolder lh in livestockHolders)
+            if (mode == 1)
             {
-                for (int i = 0; i < lh.dates.Count; i++)
+                foreach (LivestockHolder lh in livestockHolders)
                 {
-                    for (int dateIndex = -length; dateIndex < 1; dateIndex++)
+                    for (int i = 0; i < lh.dates.Count; i++)
                     {
-                        if (lh.dates[i].Date == currentDate.AddDays(dateIndex))
+                        for (int dateIndex = -length; dateIndex < 1; dateIndex++)
                         {
-                            historyArray[i] += ((int)lh.foodQuantity[i]);
+                            if (lh.dates[i].Date == currentDate.AddDays(dateIndex))
+                            {
+                                historyArray[i] += ((int)lh.foodQuantity[i]);
+                            }
+                        }
+                    }
+                }
+            }
+            // 2. X: date Y: total quantity of food consumed (for a breed)
+            else if (mode == 2)
+            {
+                foreach (LivestockHolder lh in livestockHolders)
+                {
+                    // Checks same breed and same species
+                    if (lh.species == species && lh.breed == breed)
+                    {
+                        for (int i = 0; i < lh.dates.Count; i++)
+                        {
+                            // 
+                            for (int dateIndex = -length; dateIndex < 1; dateIndex++)
+                            {
+                                if (lh.dates[i].Date == currentDate.AddDays(dateIndex))
+                                {
+                                    historyArray[i] += ((int)lh.foodQuantity[i]);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // 3. X: date Y: total quantity of food consumed (for a species)
+            else if (mode == 2)
+            {
+                foreach (LivestockHolder lh in livestockHolders)
+                {
+                    // Checks same species
+                    if (lh.species == species)
+                    {
+                        for (int i = 0; i < lh.dates.Count; i++)
+                        {
+                            // 
+                            for (int dateIndex = -length; dateIndex < 1; dateIndex++)
+                            {
+                                if (lh.dates[i].Date == currentDate.AddDays(dateIndex))
+                                {
+                                    historyArray[i] += ((int)lh.foodQuantity[i]);
+                                }
+                            }
                         }
                     }
                 }

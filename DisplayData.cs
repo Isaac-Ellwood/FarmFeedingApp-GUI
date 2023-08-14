@@ -17,9 +17,7 @@ namespace FarmFeedingAppV2
         LivestockManager lm;
         PrivateFontCollection pfc;
         SongManager sm;
-
-        List<Series> series;
-
+        
         DateTime currentDate = DateTime.Today;
 
         public DisplayData(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
@@ -28,6 +26,8 @@ namespace FarmFeedingAppV2
             this.lm = lm;
             this.pfc = pfc;
             this.sm = sm;
+            // Gets rid of legend
+            chtStatGraph.Legends.RemoveAt(0);
         }
 
         private void DisplayData_Load(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace FarmFeedingAppV2
         private void btnUpdateGraph_Click(object sender, EventArgs e)
         {
             // Updates chart to the right length :) very handy.
-            UpdateChart(100);
+            UpdateChart(5);
         }
     }
 }
