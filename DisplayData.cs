@@ -28,8 +28,6 @@ namespace FarmFeedingAppV2
             this.lm = lm;
             this.pfc = pfc;
             this.sm = sm;
-            // Gets rid of legend
-            chtStatGraph.Legends.RemoveAt(0);
         }
 
         private void DisplayData_Load(object sender, EventArgs e)
@@ -68,32 +66,6 @@ namespace FarmFeedingAppV2
         {
             // Updates chart to the right length :) very handy.
             UpdateChart(100);
-        }
-        private void cbxMode_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbxMode.SelectedIndex == 0 | cbxMode.SelectedIndex == 3)
-            {
-                cbxSpecies.Hide();
-                cbxBreed.Hide();
-            }
-            else if (cbxMode.SelectedIndex == 1 | cbxMode.SelectedIndex == 4)
-            {
-                cbxSpecies.Show();
-                cbxBreed.Show();
-            }
-            else
-            {
-                cbxSpecies.Show();
-                cbxBreed.Hide();
-            }
-        }
-        private void cbxSpecies_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void cbxBreed_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
