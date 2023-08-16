@@ -17,7 +17,9 @@ namespace FarmFeedingAppV2
         LivestockManager lm;
         PrivateFontCollection pfc;
         SongManager sm;
-        
+
+        List<Series> series;
+
         DateTime currentDate = DateTime.Today;
 
         public DisplayData(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
@@ -28,21 +30,6 @@ namespace FarmFeedingAppV2
             this.sm = sm;
             // Gets rid of legend
             chtStatGraph.Legends.RemoveAt(0);
-
-            //
-            cbxMode.DataSource = new List<string>() { "Total Food Quanitity", "Food Quantity by Breed", "Food Quantity by Species", "Total Food Cost", "Food Cost by Breed", "Food Cost by Species"};
-            cbxSpecies.DataSource = lm.GetSpeciesList();
-            // Changes to be in line with species
-            try
-            {
-                cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
-            }
-            catch (Exception)
-            {
-                // Changes source to be none
-                List<string> emptyString = new List<string>() { "" };
-                cbxBreed.DataSource = emptyString;
-            }
         }
 
         private void DisplayData_Load(object sender, EventArgs e)
@@ -80,7 +67,7 @@ namespace FarmFeedingAppV2
         private void btnUpdateGraph_Click(object sender, EventArgs e)
         {
             // Updates chart to the right length :) very handy.
-            UpdateChart(5);
+            UpdateChart(100);
         }
         private void cbxMode_SelectedIndexChanged(object sender, EventArgs e)
         {
