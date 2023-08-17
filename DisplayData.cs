@@ -18,8 +18,6 @@ namespace FarmFeedingAppV2
         PrivateFontCollection pfc;
         SongManager sm;
 
-        List<Series> series;
-
         DateTime currentDate = DateTime.Today;
 
         public DisplayData(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
@@ -28,6 +26,21 @@ namespace FarmFeedingAppV2
             this.lm = lm;
             this.pfc = pfc;
             this.sm = sm;
+
+            cbxMode.DataSource = new List<string>() { "1.", "2.", "3." };
+            cbxGroup.DataSource = new List<string>() { "All", "Species", "Breed" };
+            cbxSpecies.DataSource = lm.GetSpeciesList();
+            // Changes to be in line with species
+            try
+            {
+                cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
+            }
+            catch (Exception)
+            {
+                // Changes source to be none
+                List<string> emptyString = new List<string>() { "" };
+                cbxBreed.DataSource = emptyString;
+            }
         }
 
         private void DisplayData_Load(object sender, EventArgs e)
@@ -35,12 +48,12 @@ namespace FarmFeedingAppV2
             
         }
 
-        private void UpdateChart(int length)
+        private void UpdateChart()
         {
             Series series = new Series();
             series.ChartType = SeriesChartType.Line;
 
-            float[] chartArray = lm.ReturnHistoryArray(3, length, 3, 0);
+            int[] chartArray = lm.ReturnHistoryArray(cbxMode.SelectedIndex, cbxGroup.SelectedIndex, (int)nudGraphLength.Value, cbxSpecies.SelectedIndex,cbxBreed.SelectedIndex);
 
             Array.Reverse(chartArray);
 
@@ -56,16 +69,77 @@ namespace FarmFeedingAppV2
             // Displays dates on x axis
             for (int i = 0; i < chartArray.Length; i++)
             {
-                chtStatGraph.Series[0].Points[i].AxisLabel = $"{currentDate.AddDays(-length + i).Day}/{currentDate.AddDays(-length + i).Month}";
+                chtStatGraph.Series[0].Points[i].AxisLabel = $"{currentDate.AddDays(-(int)nudGraphLength.Value + i).Day}/{currentDate.AddDays(-(int)nudGraphLength.Value + i).Month}";
             }
 
             chtStatGraph.Update();
         }
 
+        private void cbxMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        // Shows/Hides Breed combo box based on choice
+        private void cbxGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxGroup.SelectedIndex == 0)
+            {
+                cbxSpecies.Hide();
+                cbxBreed.Hide();
+            }
+            else if (cbxGroup.SelectedIndex == 1)
+            {
+                cbxSpecies.Show();
+                cbxBreed.Hide();
+            }
+            else if (cbxGroup.SelectedIndex == 2)
+            {
+                cbxSpecies.Show();
+                cbxBreed.Show();
+            }
+        }
+
+        private void cbxSpecies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxSpecies.SelectedIndex < 0)
+            {
+                // Changes source to be none
+                List<string> emptyString = new List<string>() { "" };
+                cbxBreed.DataSource = emptyString;
+            }
+            else
+            {
+                // Changes to be in line with species
+                try
+                {
+                    cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
+                    cbxBreed.SelectedIndex = 0;
+                }
+                catch (Exception)
+                {
+                    // Changes source to be none
+                    List<string> emptyString = new List<string>() { "" };
+                    cbxBreed.DataSource = emptyString;
+                    cbxBreed.SelectedIndex = 0;
+                }
+            }
+        }
+
+        private void cbxBreed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nudGraphLength_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnUpdateGraph_Click(object sender, EventArgs e)
         {
             // Updates chart to the right length :) very handy.
-            UpdateChart(100);
+            UpdateChart();
         }
     }
 }

@@ -37,12 +37,15 @@ namespace FarmFeedingAppV2
             this.cbxBreed = new System.Windows.Forms.ComboBox();
             this.cbxSpecies = new System.Windows.Forms.ComboBox();
             this.cbxMode = new System.Windows.Forms.ComboBox();
+            this.cbxGroup = new System.Windows.Forms.ComboBox();
+            this.nudGraphLength = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.chtStatGraph)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGraphLength)).BeginInit();
             this.SuspendLayout();
             // 
             // btnUpdateGraph
             // 
-            this.btnUpdateGraph.Location = new System.Drawing.Point(490, 381);
+            this.btnUpdateGraph.Location = new System.Drawing.Point(691, 771);
             this.btnUpdateGraph.Name = "btnUpdateGraph";
             this.btnUpdateGraph.Size = new System.Drawing.Size(184, 23);
             this.btnUpdateGraph.TabIndex = 0;
@@ -63,14 +66,14 @@ namespace FarmFeedingAppV2
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chtStatGraph.Series.Add(series1);
-            this.chtStatGraph.Size = new System.Drawing.Size(547, 300);
+            this.chtStatGraph.Size = new System.Drawing.Size(998, 669);
             this.chtStatGraph.TabIndex = 1;
             this.chtStatGraph.Text = "chart1";
             // 
             // cbxBreed
             // 
             this.cbxBreed.FormattingEnabled = true;
-            this.cbxBreed.Location = new System.Drawing.Point(335, 369);
+            this.cbxBreed.Location = new System.Drawing.Point(536, 759);
             this.cbxBreed.Name = "cbxBreed";
             this.cbxBreed.Size = new System.Drawing.Size(121, 21);
             this.cbxBreed.TabIndex = 2;
@@ -79,7 +82,7 @@ namespace FarmFeedingAppV2
             // cbxSpecies
             // 
             this.cbxSpecies.FormattingEnabled = true;
-            this.cbxSpecies.Location = new System.Drawing.Point(187, 369);
+            this.cbxSpecies.Location = new System.Drawing.Point(388, 759);
             this.cbxSpecies.Name = "cbxSpecies";
             this.cbxSpecies.Size = new System.Drawing.Size(121, 21);
             this.cbxSpecies.TabIndex = 3;
@@ -88,25 +91,48 @@ namespace FarmFeedingAppV2
             // cbxMode
             // 
             this.cbxMode.FormattingEnabled = true;
-            this.cbxMode.Location = new System.Drawing.Point(60, 369);
+            this.cbxMode.Location = new System.Drawing.Point(261, 759);
             this.cbxMode.Name = "cbxMode";
             this.cbxMode.Size = new System.Drawing.Size(121, 21);
             this.cbxMode.TabIndex = 4;
             this.cbxMode.SelectedIndexChanged += new System.EventHandler(this.cbxMode_SelectedIndexChanged);
             // 
+            // cbxGroup
+            // 
+            this.cbxGroup.FormattingEnabled = true;
+            this.cbxGroup.Location = new System.Drawing.Point(261, 787);
+            this.cbxGroup.Name = "cbxGroup";
+            this.cbxGroup.Size = new System.Drawing.Size(121, 21);
+            this.cbxGroup.TabIndex = 5;
+            this.cbxGroup.SelectedIndexChanged += new System.EventHandler(this.cbxGroup_SelectedIndexChanged);
+            // 
+            // nudGraphLength
+            // 
+            this.nudGraphLength.Location = new System.Drawing.Point(718, 745);
+            this.nudGraphLength.Name = "nudGraphLength";
+            this.nudGraphLength.Size = new System.Drawing.Size(120, 20);
+            this.nudGraphLength.TabIndex = 6;
+            this.nudGraphLength.ValueChanged += new System.EventHandler(this.nudGraphLength_SelectedValueChanged);
+            // 
             // DisplayData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1902, 999);
+            this.Controls.Add(this.nudGraphLength);
+            this.Controls.Add(this.cbxGroup);
             this.Controls.Add(this.cbxMode);
             this.Controls.Add(this.cbxSpecies);
             this.Controls.Add(this.cbxBreed);
             this.Controls.Add(this.chtStatGraph);
             this.Controls.Add(this.btnUpdateGraph);
+            this.MinimumSize = new System.Drawing.Size(1918, 1038);
             this.Name = "DisplayData";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DisplayData";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.chtStatGraph)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudGraphLength)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -118,5 +144,7 @@ namespace FarmFeedingAppV2
         private System.Windows.Forms.ComboBox cbxBreed;
         private System.Windows.Forms.ComboBox cbxSpecies;
         private System.Windows.Forms.ComboBox cbxMode;
+        private System.Windows.Forms.ComboBox cbxGroup;
+        private System.Windows.Forms.NumericUpDown nudGraphLength;
     }
 }

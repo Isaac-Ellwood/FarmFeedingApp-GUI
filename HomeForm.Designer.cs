@@ -113,6 +113,7 @@ namespace FarmFeedingAppV2
             this.Controls.Add(this.btnFeedLivestock);
             this.Controls.Add(this.btnSaveAndExit);
             this.Controls.Add(this.btnAddLivestock);
+            this.MinimumSize = new System.Drawing.Size(1918, 1038);
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
