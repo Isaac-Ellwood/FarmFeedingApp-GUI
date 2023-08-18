@@ -32,26 +32,16 @@ namespace FarmFeedingAppV2
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.btnUpdateGraph = new System.Windows.Forms.Button();
             this.chtStatGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cbxBreed = new System.Windows.Forms.ComboBox();
             this.cbxSpecies = new System.Windows.Forms.ComboBox();
             this.cbxMode = new System.Windows.Forms.ComboBox();
             this.cbxGroup = new System.Windows.Forms.ComboBox();
             this.nudGraphLength = new System.Windows.Forms.NumericUpDown();
+            this.rtbSummaryText = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.chtStatGraph)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudGraphLength)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnUpdateGraph
-            // 
-            this.btnUpdateGraph.Location = new System.Drawing.Point(691, 771);
-            this.btnUpdateGraph.Name = "btnUpdateGraph";
-            this.btnUpdateGraph.Size = new System.Drawing.Size(184, 23);
-            this.btnUpdateGraph.TabIndex = 0;
-            this.btnUpdateGraph.Text = "Update Graph";
-            this.btnUpdateGraph.UseVisualStyleBackColor = true;
-            this.btnUpdateGraph.Click += new System.EventHandler(this.btnUpdateGraph_Click);
             // 
             // chtStatGraph
             // 
@@ -73,7 +63,7 @@ namespace FarmFeedingAppV2
             // cbxBreed
             // 
             this.cbxBreed.FormattingEnabled = true;
-            this.cbxBreed.Location = new System.Drawing.Point(536, 759);
+            this.cbxBreed.Location = new System.Drawing.Point(734, 758);
             this.cbxBreed.Name = "cbxBreed";
             this.cbxBreed.Size = new System.Drawing.Size(121, 21);
             this.cbxBreed.TabIndex = 2;
@@ -82,7 +72,7 @@ namespace FarmFeedingAppV2
             // cbxSpecies
             // 
             this.cbxSpecies.FormattingEnabled = true;
-            this.cbxSpecies.Location = new System.Drawing.Point(388, 759);
+            this.cbxSpecies.Location = new System.Drawing.Point(569, 759);
             this.cbxSpecies.Name = "cbxSpecies";
             this.cbxSpecies.Size = new System.Drawing.Size(121, 21);
             this.cbxSpecies.TabIndex = 3;
@@ -100,7 +90,7 @@ namespace FarmFeedingAppV2
             // cbxGroup
             // 
             this.cbxGroup.FormattingEnabled = true;
-            this.cbxGroup.Location = new System.Drawing.Point(261, 787);
+            this.cbxGroup.Location = new System.Drawing.Point(419, 759);
             this.cbxGroup.Name = "cbxGroup";
             this.cbxGroup.Size = new System.Drawing.Size(121, 21);
             this.cbxGroup.TabIndex = 5;
@@ -108,24 +98,47 @@ namespace FarmFeedingAppV2
             // 
             // nudGraphLength
             // 
-            this.nudGraphLength.Location = new System.Drawing.Point(718, 745);
+            this.nudGraphLength.Location = new System.Drawing.Point(894, 759);
+            this.nudGraphLength.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nudGraphLength.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.nudGraphLength.Name = "nudGraphLength";
             this.nudGraphLength.Size = new System.Drawing.Size(120, 20);
             this.nudGraphLength.TabIndex = 6;
+            this.nudGraphLength.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.nudGraphLength.ValueChanged += new System.EventHandler(this.nudGraphLength_SelectedValueChanged);
+            // 
+            // rtbSummaryText
+            // 
+            this.rtbSummaryText.Location = new System.Drawing.Point(1201, 184);
+            this.rtbSummaryText.Name = "rtbSummaryText";
+            this.rtbSummaryText.Size = new System.Drawing.Size(637, 528);
+            this.rtbSummaryText.TabIndex = 7;
+            this.rtbSummaryText.Text = "";
             // 
             // DisplayData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 999);
+            this.Controls.Add(this.rtbSummaryText);
             this.Controls.Add(this.nudGraphLength);
             this.Controls.Add(this.cbxGroup);
             this.Controls.Add(this.cbxMode);
             this.Controls.Add(this.cbxSpecies);
             this.Controls.Add(this.cbxBreed);
             this.Controls.Add(this.chtStatGraph);
-            this.Controls.Add(this.btnUpdateGraph);
             this.MinimumSize = new System.Drawing.Size(1918, 1038);
             this.Name = "DisplayData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -138,13 +151,12 @@ namespace FarmFeedingAppV2
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnUpdateGraph;
         private System.Windows.Forms.DataVisualization.Charting.Chart chtStatGraph;
         private System.Windows.Forms.ComboBox cbxBreed;
         private System.Windows.Forms.ComboBox cbxSpecies;
         private System.Windows.Forms.ComboBox cbxMode;
         private System.Windows.Forms.ComboBox cbxGroup;
         private System.Windows.Forms.NumericUpDown nudGraphLength;
+        private System.Windows.Forms.RichTextBox rtbSummaryText;
     }
 }

@@ -53,6 +53,7 @@ namespace FarmFeedingAppV2
             Series series = new Series();
             series.ChartType = SeriesChartType.Line;
 
+            // Works if nudGraphLength.Value < 9. MUST BE GREATER THAN 9!
             int[] chartArray = lm.ReturnHistoryArray(cbxMode.SelectedIndex, cbxGroup.SelectedIndex, (int)nudGraphLength.Value, cbxSpecies.SelectedIndex,cbxBreed.SelectedIndex);
 
             Array.Reverse(chartArray);
@@ -73,6 +74,45 @@ namespace FarmFeedingAppV2
             }
 
             chtStatGraph.Update();
+        }
+
+        private void UpdateSummaryText()
+        {
+            string summaryText = "";
+            // Days
+            summaryText += $"Last {nudGraphLength} days\n";
+
+            // Group
+            if (cbxGroup.SelectedIndex == 0)
+            {
+                summaryText += "All Livestock\n";
+            }
+            else
+            {
+                // Adds species
+                summaryText += $"Species: {cbxSpecies.SelectedItem}\n";
+                // Posibly adds breed
+                if (cbxGroup.SelectedIndex == 2)
+                {
+                    summaryText += $"Breed: {cbxBreed.SelectedItem}\n";
+                }
+            }
+
+            // Totals
+            // ONLY WORKS IF GRAPH IS SHOWING QUANTITY!! AAAAHHHHAHAHAHHAHAHHAHAHAHAHAHHAHAHAHAHHAHAHHAHAHHAHAHHAHHAH
+            int totalFood = 0;
+            for (int i = 0; i < chtStatGraph.Series[0].Points.Count; i++)
+            {
+                totalFood += Convert.ToInt32(chtStatGraph.Series[0].Points[i].YValues);
+            }
+            int totalCost = lm.TotalCost((int)nudGraphLength.Value, cbxGroup.SelectedIndex, cbxSpecies.SelectedIndex, cbxBreed.SelectedIndex);
+            // Total food eaten (g)
+            summaryText += $"Total food consumed: {}";
+            // Total cost
+
+            // Food per animal (g)
+
+            // Cost per animal
         }
 
         private void cbxMode_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,6 +138,7 @@ namespace FarmFeedingAppV2
                 cbxSpecies.Show();
                 cbxBreed.Show();
             }
+            UpdateChart();
         }
 
         private void cbxSpecies_SelectedIndexChanged(object sender, EventArgs e)
@@ -124,6 +165,7 @@ namespace FarmFeedingAppV2
                     cbxBreed.SelectedIndex = 0;
                 }
             }
+            UpdateChart();
         }
 
         private void cbxBreed_SelectedIndexChanged(object sender, EventArgs e)
@@ -133,7 +175,7 @@ namespace FarmFeedingAppV2
 
         private void nudGraphLength_SelectedValueChanged(object sender, EventArgs e)
         {
-
+            UpdateChart();
         }
 
         private void btnUpdateGraph_Click(object sender, EventArgs e)
