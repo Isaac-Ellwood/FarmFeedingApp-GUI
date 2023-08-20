@@ -19,6 +19,8 @@ namespace FarmFeedingAppV2
         SongManager sm;
 
         DateTime currentDate = DateTime.Today;
+        float[] foodQuanitityArray;
+        float[] foodCostArray;
 
         public DisplayData(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
         {
@@ -53,8 +55,29 @@ namespace FarmFeedingAppV2
             Series series = new Series();
             series.ChartType = SeriesChartType.Line;
 
-            // Works if nudGraphLength.Value < 9. MUST BE GREATER THAN 9!
-            int[] chartArray = lm.ReturnHistoryArray(cbxMode.SelectedIndex, cbxGroup.SelectedIndex, (int)nudGraphLength.Value, cbxSpecies.SelectedIndex,cbxBreed.SelectedIndex);
+            // Makes a big Array
+            float[,] bigArray = lm.ReturnHistoryArray(cbxGroup.SelectedIndex, (int)nudGraphLength.Value, cbxSpecies.SelectedIndex,cbxBreed.SelectedIndex);
+            
+            // Sets Quantity Array
+            float[] foodQuantityArray = new float[bigArray.GetLength(0)];
+            for (int i = 0; i < bigArray.GetLength(0); i++)
+            {
+                foodQuantityArray[i] = bigArray[0, i]; // Extracting the values from the first row
+            }
+            // Sets Cost Array
+            float[] foodCostArray = new float[bigArray.GetLength(1)];
+            for (int i = 0; i < bigArray.GetLength(1); i++)
+            {
+                foodCostArray[i] = bigArray[1, i]; // Extracting the values from the first row
+            }
+
+            // Sets chart array to quanitity by default
+            float[] chartArray = foodQuantityArray;
+            // Than sets to cost if desired
+            if (cbxMode.SelectedIndex == 1)
+            {
+                chartArray = foodCostArray;
+            }
 
             Array.Reverse(chartArray);
 
@@ -74,13 +97,15 @@ namespace FarmFeedingAppV2
             }
 
             chtStatGraph.Update();
+
+            UpdateSummaryText(foodQuantityArray, foodCostArray);
         }
 
-        private void UpdateSummaryText()
+        private void UpdateSummaryText(float[] foodQuanitityArray, float[] foodCostArray)
         {
             string summaryText = "";
             // Days
-            summaryText += $"Last {nudGraphLength} days\n";
+            summaryText += $"Last {nudGraphLength.Value} days\n";
 
             // Group
             if (cbxGroup.SelectedIndex == 0)
@@ -99,20 +124,26 @@ namespace FarmFeedingAppV2
             }
 
             // Totals
-            // ONLY WORKS IF GRAPH IS SHOWING QUANTITY!! AAAAHHHHAHAHAHHAHAHHAHAHAHAHAHHAHAHAHAHHAHAHHAHAHHAHAHHAHHAH
-            int totalFood = 0;
-            for (int i = 0; i < chtStatGraph.Series[0].Points.Count; i++)
+            // Food quantity
+            float totalFood = 0;
+            foreach (var item in foodQuanitityArray)
             {
-                totalFood += Convert.ToInt32(chtStatGraph.Series[0].Points[i].YValues);
+                totalFood += item;
             }
-            int totalCost = lm.TotalCost((int)nudGraphLength.Value, cbxGroup.SelectedIndex, cbxSpecies.SelectedIndex, cbxBreed.SelectedIndex);
-            // Total food eaten (g)
-            summaryText += $"Total food consumed: {}";
+            summaryText += $"Total food consumed: {totalFood}g\n";
             // Total cost
-
+            float totalCost = 0;
+            foreach (var item in foodCostArray)
+            {
+                totalCost += item;
+            }
+            summaryText += $"Total Cost: ${totalCost}\n";
             // Food per animal (g)
-
+            summaryText += $"Food per animal: {totalFood / lm.GetLivestockHoldersLength()}g\n";
             // Cost per animal
+            summaryText += $"Cost per animal: ${totalCost / lm.GetLivestockHoldersLength()}\n";
+
+            rtbSummaryText.Text = summaryText; 
         }
 
         private void cbxMode_SelectedIndexChanged(object sender, EventArgs e)

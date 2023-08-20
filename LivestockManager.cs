@@ -242,75 +242,84 @@ namespace FarmFeedingAppV2
         }
 
         // Returns history list
-        public int[] ReturnHistoryArray(int mode, int group, int length, int species, int breed)
+        public float[,] ReturnHistoryArray(int group, int length, int species, int breed)
         {
-            int[] historyArray = new int[length];
-            // Modes:
-            // 1. X: date Y: total quantity of food consumed
-            if (mode == 0)
+            float[] quantityArray = new float[length];
+            float[] costArray = new float[length];
+            
+            // FOR ALL LIVESTOCK
+            if (group == 0)
             {
-                if (group == 0)
+                foreach (LivestockHolder lh in livestockHolders)
                 {
-                    foreach (LivestockHolder lh in livestockHolders)
+                    for (int i = 0; i < lh.dates.Count; i++)
+                    {
+                        for (int dateIndex = -length; dateIndex < 1; dateIndex++)
+                        {
+                            if (lh.dates[i].Date == currentDate.AddDays(dateIndex))
+                            {
+                                quantityArray[i] += ((int)lh.foodQuantity[i]);
+                                costArray[i] += (lh.foodQuantity[i] * foodPrices[lh.foodType[i]]);
+                            }
+                        }
+                    }
+                }
+            }
+            // FOR A SINGLE BREED
+            else if (group == 2)
+            {
+                foreach (LivestockHolder lh in livestockHolders)
+                {
+                    // Checks same breed and same species
+                    if (lh.species == species && lh.breed == breed)
                     {
                         for (int i = 0; i < lh.dates.Count; i++)
                         {
+                            // 
                             for (int dateIndex = -length; dateIndex < 1; dateIndex++)
                             {
                                 if (lh.dates[i].Date == currentDate.AddDays(dateIndex))
                                 {
-                                    historyArray[i] += ((int)lh.foodQuantity[i]);
-                                }
-                            }
-                        }
-                    }
-                }
-                // 2. X: date Y: total quantity of food consumed (for a breed)
-                else if (group == 2)
-                {
-                    foreach (LivestockHolder lh in livestockHolders)
-                    {
-                        // Checks same breed and same species
-                        if (lh.species == species && lh.breed == breed)
-                        {
-                            for (int i = 0; i < lh.dates.Count; i++)
-                            {
-                                // 
-                                for (int dateIndex = -length; dateIndex < 1; dateIndex++)
-                                {
-                                    if (lh.dates[i].Date == currentDate.AddDays(dateIndex))
-                                    {
-                                        historyArray[i] += ((int)lh.foodQuantity[i]);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                // 3. X: date Y: total quantity of food consumed (for a species)
-                else if (group == 1)
-                {
-                    foreach (LivestockHolder lh in livestockHolders)
-                    {
-                        // Checks same species
-                        if (lh.species == species)
-                        {
-                            for (int i = 0; i < lh.dates.Count; i++)
-                            {
-                                // 
-                                for (int dateIndex = -length; dateIndex < 1; dateIndex++)
-                                {
-                                    if (lh.dates[i].Date == currentDate.AddDays(dateIndex))
-                                    {
-                                        historyArray[i] += ((int)lh.foodQuantity[i]);
-                                    }
+                                    quantityArray[i] += ((int)lh.foodQuantity[i]);
+                                    costArray[i] += (lh.foodQuantity[i] * foodPrices[lh.foodType[i]]);
                                 }
                             }
                         }
                     }
                 }
             }
-            
+            // FOR A SINGLE SPECIES
+            else if (group == 1)
+            {
+                foreach (LivestockHolder lh in livestockHolders)
+                {
+                    // Checks same species
+                    if (lh.species == species)
+                    {
+                        for (int i = 0; i < lh.dates.Count; i++)
+                        {
+                            // 
+                            for (int dateIndex = -length; dateIndex < 1; dateIndex++)
+                            {
+                                if (lh.dates[i].Date == currentDate.AddDays(dateIndex))
+                                {
+                                    quantityArray[i] += (lh.foodQuantity[i]);
+                                    costArray[i] += (lh.foodQuantity[i] * foodPrices[lh.foodType[i]]);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            float[,] historyArray = new float[2,length];
+            for (int i = 0; i < length; i++)
+            {
+                historyArray[0, i] = quantityArray[i];
+            }
+            for (int i = 0; i < length; i++)
+            {
+                historyArray[1, i] = costArray[i];
+            }
             return historyArray;
         }
 
