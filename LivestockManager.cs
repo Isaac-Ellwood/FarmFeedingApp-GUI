@@ -258,7 +258,7 @@ namespace FarmFeedingAppV2
                         {
                             if (lh.dates[i].Date == currentDate.AddDays(dateIndex))
                             {
-                                quantityArray[i] += ((int)lh.foodQuantity[i]);
+                                quantityArray[i] += (lh.foodQuantity[i]);
                                 costArray[i] += (lh.foodQuantity[i] * foodPrices[lh.foodType[i]]);
                             }
                         }
@@ -280,7 +280,7 @@ namespace FarmFeedingAppV2
                             {
                                 if (lh.dates[i].Date == currentDate.AddDays(dateIndex))
                                 {
-                                    quantityArray[i] += ((int)lh.foodQuantity[i]);
+                                    quantityArray[i] += (lh.foodQuantity[i]);
                                     costArray[i] += (lh.foodQuantity[i] * foodPrices[lh.foodType[i]]);
                                 }
                             }

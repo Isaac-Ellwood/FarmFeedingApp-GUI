@@ -59,25 +59,37 @@ namespace FarmFeedingAppV2
             float[,] bigArray = lm.ReturnHistoryArray(cbxGroup.SelectedIndex, (int)nudGraphLength.Value, cbxSpecies.SelectedIndex,cbxBreed.SelectedIndex);
             
             // Sets Quantity Array
-            float[] foodQuantityArray = new float[bigArray.GetLength(0)];
+            float[] foodQuantityArray = new float[(int)nudGraphLength.Value];
             for (int i = 0; i < bigArray.GetLength(0); i++)
             {
                 foodQuantityArray[i] = bigArray[0, i]; // Extracting the values from the first row
             }
             // Sets Cost Array
-            float[] foodCostArray = new float[bigArray.GetLength(1)];
+            float[] foodCostArray = new float[(int)nudGraphLength.Value];
             for (int i = 0; i < bigArray.GetLength(1); i++)
             {
                 foodCostArray[i] = bigArray[1, i]; // Extracting the values from the first row
             }
 
             // Sets chart array to quanitity by default
-            float[] chartArray = foodQuantityArray;
+            float[] chartArray = new float[(int)nudGraphLength.Value];
             // Than sets to cost if desired
-            if (cbxMode.SelectedIndex == 1)
+            if (cbxMode.SelectedIndex == 0)
             {
-                chartArray = foodCostArray;
+                for (int i = 0; i < (int)nudGraphLength.Value; i++)
+                {
+                    chartArray[i] = foodQuantityArray[i];
+                }
             }
+            else
+            {
+                for (int i = 0; i < (int)nudGraphLength.Value; i++)
+                {
+                    chartArray[i] = foodCostArray[i];
+                }
+            }
+
+            
 
             Array.Reverse(chartArray);
 
@@ -148,7 +160,7 @@ namespace FarmFeedingAppV2
 
         private void cbxMode_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            UpdateChart();
         }
 
         // Shows/Hides Breed combo box based on choice
