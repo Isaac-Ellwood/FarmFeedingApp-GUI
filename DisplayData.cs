@@ -19,8 +19,6 @@ namespace FarmFeedingAppV2
         SongManager sm;
 
         DateTime currentDate = DateTime.Today;
-        float[] foodQuanitityArray;
-        float[] foodCostArray;
 
         public DisplayData(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
         {
