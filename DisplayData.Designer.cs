@@ -29,9 +29,9 @@ namespace FarmFeedingAppV2
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chtStatGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cbxBreed = new System.Windows.Forms.ComboBox();
             this.cbxSpecies = new System.Windows.Forms.ComboBox();
@@ -45,17 +45,17 @@ namespace FarmFeedingAppV2
             // 
             // chtStatGraph
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chtStatGraph.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chtStatGraph.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chtStatGraph.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chtStatGraph.Legends.Add(legend2);
             this.chtStatGraph.Location = new System.Drawing.Point(127, 43);
             this.chtStatGraph.Name = "chtStatGraph";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chtStatGraph.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chtStatGraph.Series.Add(series2);
             this.chtStatGraph.Size = new System.Drawing.Size(998, 669);
             this.chtStatGraph.TabIndex = 1;
             this.chtStatGraph.Text = "chart1";
@@ -104,16 +104,11 @@ namespace FarmFeedingAppV2
             0,
             0,
             0});
-            this.nudGraphLength.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
             this.nudGraphLength.Name = "nudGraphLength";
             this.nudGraphLength.Size = new System.Drawing.Size(120, 20);
             this.nudGraphLength.TabIndex = 6;
             this.nudGraphLength.Value = new decimal(new int[] {
-            10,
+            7,
             0,
             0,
             0});

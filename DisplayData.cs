@@ -27,7 +27,7 @@ namespace FarmFeedingAppV2
             this.pfc = pfc;
             this.sm = sm;
 
-            cbxMode.DataSource = new List<string>() { "1.", "2.", "3." };
+            cbxMode.DataSource = new List<string>() { "Food Quantity", "Food Cost"};
             cbxGroup.DataSource = new List<string>() { "All", "Species", "Breed" };
             cbxSpecies.DataSource = lm.GetSpeciesList();
             // Changes to be in line with species
@@ -58,13 +58,13 @@ namespace FarmFeedingAppV2
             
             // Sets Quantity Array
             float[] foodQuantityArray = new float[(int)nudGraphLength.Value];
-            for (int i = 0; i < bigArray.GetLength(0); i++)
+            for (int i = 0; i < (int)nudGraphLength.Value; i++)
             {
                 foodQuantityArray[i] = bigArray[0, i]; // Extracting the values from the first row
             }
             // Sets Cost Array
             float[] foodCostArray = new float[(int)nudGraphLength.Value];
-            for (int i = 0; i < bigArray.GetLength(1); i++)
+            for (int i = 0; i < (int)nudGraphLength.Value; i++)
             {
                 foodCostArray[i] = bigArray[1, i]; // Extracting the values from the first row
             }
@@ -74,6 +74,9 @@ namespace FarmFeedingAppV2
             // Than sets to cost if desired
             if (cbxMode.SelectedIndex == 0)
             {
+                chtStatGraph.Series[0].XValueMember = "Date";
+                chtStatGraph.Series[0].YValueMembers = "Food Quantity";
+
                 for (int i = 0; i < (int)nudGraphLength.Value; i++)
                 {
                     chartArray[i] = foodQuantityArray[i];
@@ -81,13 +84,14 @@ namespace FarmFeedingAppV2
             }
             else
             {
+                chtStatGraph.Series[0].XValueMember = "Date";
+                chtStatGraph.Series[0].YValueMembers = "Food Cost";
+
                 for (int i = 0; i < (int)nudGraphLength.Value; i++)
                 {
                     chartArray[i] = foodCostArray[i];
                 }
             }
-
-            
 
             Array.Reverse(chartArray);
 
@@ -99,6 +103,18 @@ namespace FarmFeedingAppV2
             // Out with the old series, in with the new one.
             chtStatGraph.Series.RemoveAt(0);
             chtStatGraph.Series.Add(series);
+
+            // Than sets to cost if desired
+            if (cbxMode.SelectedIndex == 0)
+            {
+                chtStatGraph.Series[0].XValueMember = "Date";
+                chtStatGraph.Series[0].YValueMembers = "Food Quantity";
+            }
+            else
+            {
+                chtStatGraph.Series[0].XValueMember = "Date";
+                chtStatGraph.Series[0].YValueMembers = "Food Cost";
+            }
 
             // Displays dates on x axis
             for (int i = 0; i < chartArray.Length; i++)
@@ -211,7 +227,7 @@ namespace FarmFeedingAppV2
 
         private void cbxBreed_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            UpdateChart();
         }
 
         private void nudGraphLength_SelectedValueChanged(object sender, EventArgs e)
