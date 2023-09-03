@@ -121,7 +121,7 @@ namespace FarmFeedingAppV2
         private void btnSaveAndExit_Click(object sender, EventArgs e)
         {
             lm.SerialiseSaveData();
-            saved = true;
+            lm.saved = true;
             this.Close();
         }
 

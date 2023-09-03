@@ -30,7 +30,7 @@ namespace FarmFeedingAppV2
             this.pfc = pfc;
             this.sm = sm;
 
-            cbxGroup.DataSource = new List<string>() {"Species","Breed"};
+            cbxGroup.DataSource = new List<string>() {"Species","Breed","Food"};
             cbxSpecies.DataSource = lm.GetSpeciesList();
             // Changes to be in line with species
             try
@@ -56,6 +56,13 @@ namespace FarmFeedingAppV2
             {
                 cbxBreed.Show();
             }
+            else if (cbxGroup.SelectedIndex == 2)
+            {
+                // Changes source to be none
+                cbxSpecies.DataSource = lm.GetFoodList();
+                cbxBreed.DataSource = lm.GetFoodCostList();
+                cbxBreed.Show();
+            }
         }
 
         private void cbxSpecies_SelectedIndexChanged(object sender, EventArgs e)
@@ -68,18 +75,38 @@ namespace FarmFeedingAppV2
             }
             else
             {
-                // Changes to be in line with species
-                try
+                if (cbxGroup.SelectedIndex != 2)
                 {
-                    cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
-                    cbxBreed.SelectedIndex = 0;
+                    // Changes to be in line with species
+                    try
+                    {
+                        cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
+                        cbxBreed.SelectedIndex = 0;
+                    }
+                    catch (Exception)
+                    {
+                        // Changes source to be none
+                        List<string> emptyString = new List<string>() { "" };
+                        cbxBreed.DataSource = emptyString;
+                        cbxBreed.SelectedIndex = 0;
+                    }
                 }
-                catch (Exception)
+                else
                 {
-                    // Changes source to be none
-                    List<string> emptyString = new List<string>() { "" };
-                    cbxBreed.DataSource = emptyString;
-                    cbxBreed.SelectedIndex = 0;
+                    // Changes to be in line with food
+                    try
+                    {
+                        List<float> foodCost = new List<float> { lm.GetFoodCostList()[cbxSpecies.SelectedIndex]};
+                        cbxBreed.DataSource = foodCost;
+                        cbxBreed.SelectedIndex = 0;
+                    }
+                    catch (Exception)
+                    {
+                        // Changes source to be none
+                        List<string> emptyString = new List<string>() { "" };
+                        cbxBreed.DataSource = emptyString;
+                        cbxBreed.SelectedIndex = 0;
+                    }
                 }
             }
         }
@@ -104,7 +131,15 @@ namespace FarmFeedingAppV2
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            lm.RemoveSpeciesBreedType(cbxGroup.SelectedIndex,cbxSpecies.SelectedIndex, cbxBreed.SelectedIndex);
+            bool removed = lm.RemoveSpeciesBreedFoodType(cbxGroup.SelectedIndex,cbxSpecies.SelectedIndex, cbxBreed.SelectedIndex);
+            if (removed)
+            {
+                MessageBox.Show("Category has been successfully deleted.", "Category Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Category was unable to be deleted, as it is occupied.", "Category Deletion Failure", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             updateData();
         }
 

@@ -163,6 +163,12 @@ namespace FarmFeedingAppV2
         {
             return foods;
         }
+        
+        // Returns food cost list
+        public List<float> GetFoodCostList()
+        {
+            return foodPrices;
+        }
 
         // Returns livestockHolders length
         public int GetLivestockHoldersLength()
@@ -374,24 +380,75 @@ namespace FarmFeedingAppV2
             }
         }
 
-        public void RemoveSpeciesBreedType(int group, int speciesIndex, int breedIndex)
+        public bool RemoveSpeciesBreedFoodType(int group, int speciesIndex, int breedIndex)
         {
             // Removing species
             if (group == 0 && speciesIndex >= 0)
             {
-                speciesList.RemoveAt(speciesIndex);
-                breedsList.RemoveAt(speciesIndex);
+                bool isSpeciesOccupied = false;
+                for (int i = 0; i < breedsList[speciesIndex].Count; i++)
+                {
+                    if (IsBreedOccupied(speciesIndex,breedIndex))
+                    {
+                        isSpeciesOccupied = true;
+                        return false;
+                    }
+                }
+                if (!isSpeciesOccupied)
+                {
+                    // SUCCEEDED
+                    speciesList.RemoveAt(speciesIndex);
+                    breedsList.RemoveAt(speciesIndex);
+                    return true;
+                }
+                else
+                {
+                    // FAILED
+                    return false;
+                }
             }
             // Removing breed
             else if (group == 1 && speciesIndex >= 0 && breedIndex >= 0)
             {
-                breedsList[speciesIndex].RemoveAt(breedIndex);
+                if (!IsBreedOccupied(speciesIndex,breedIndex))
+                {
+                    // SUCCEEDED
+                    breedsList[speciesIndex].RemoveAt(breedIndex);
+                    return true;
+                }
+                else
+                {
+                    // FAILED
+                    return false;
+                }
             }
-            // Failed
-            else
+            // Removing food
+            else if (group == 2 && speciesIndex >= 0)
             {
-
+                for (int i = 0; i < livestockHolders.Count; i++)
+                {
+                    for (int foodIndex = 0; foodIndex < livestockHolders[i].foodType.Count; foodIndex++)
+                    {
+                        if (livestockHolders[i].foodType[foodIndex] == speciesIndex) { return false; }
+                    }
+                }
+                // SUCCEEDED
+                foods.RemoveAt(speciesIndex);
+                foodPrices.RemoveAt(speciesIndex);
+                return true;
             }
+            return false;
+        }
+
+        bool IsBreedOccupied(int species, int breed)
+        {
+            for (int i = 0; i < livestockHolders.Count; i++)
+            {
+                // Returns true if breed is occupied
+                if (livestockHolders[i].species == species && livestockHolders[i].breed == breed) { return true; }
+            }
+            // Returns false if not occupied
+            return false;
         }
 
         // Checks if breed already exists across all stored breeds currently.
