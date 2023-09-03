@@ -13,8 +13,10 @@ namespace FarmFeedingAppV2
         // Attributes
         List<LivestockHolder> livestockHolders = new List<LivestockHolder>();
 
+        // Set saved to false
+        public bool saved = false;
+
         // Sets the current date and time
-        // TODO: alow manual changing of date
         DateTime currentDate = DateTime.Today;
 
         List<string> foods = new List<string>();

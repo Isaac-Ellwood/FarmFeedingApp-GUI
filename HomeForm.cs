@@ -87,7 +87,7 @@ namespace FarmFeedingAppV2
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             // Checks that the data hasn't already been saved
-            if(saved == false)
+            if(lm.saved == false)
             {
                 // Check if the form is being closed by the user
                 if (e.CloseReason == CloseReason.UserClosing)
@@ -99,15 +99,18 @@ namespace FarmFeedingAppV2
                     {
                         // Saves data before closing
                         lm.SerialiseSaveData();
+                        lm.saved = true;
                     }
                     if (result == DialogResult.No)
                     {
                         // Does nothing, and form closes
+                        lm.saved = true;
                     }
                     if (result == DialogResult.Cancel)
                     {
                         // Cancel the form closing event
                         e.Cancel = true;
+                        lm.saved = false;
                     }
                 }
             }
