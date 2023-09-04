@@ -332,14 +332,14 @@ namespace FarmFeedingAppV2
         }
 
         // Add species/breed type
-        public void AddSpeciesBreedType(int speciesIndex, string species, string breed)
+        public bool AddSpeciesBreedType(int speciesIndex, string species, string breed)
         {
             if (breed == "")
             {
                 // Just new Species
                 if (speciesList.Contains(species))
                 {
-                    return;
+                    return false;
                 }
                 else
                 {
@@ -359,7 +359,7 @@ namespace FarmFeedingAppV2
                     }
                     catch (Exception)
                     {
-                        return;
+                        return false;
                     }
                 }
                 // New species, new breed!!!
@@ -368,7 +368,7 @@ namespace FarmFeedingAppV2
                     // Redundant checks tbh, but it's okay.
                     if (speciesList.Contains(species) && BreedCheckExists(breed) == true)
                     {
-                        return;
+                        return false;
                     }
                     else
                     {
@@ -378,6 +378,37 @@ namespace FarmFeedingAppV2
                     }
                 }
             }
+            return true;
+        }
+
+        // Adds food to food list if possible
+        public bool AddFood(string foodName, string foodPrice)
+        {
+            if (foods.Contains(foodName))
+            {
+                return false;
+            }
+            else
+            {
+                foods.Add(foodName);
+                foodPrices.Add(float.Parse(foodPrice));
+                return true;
+            }
+        }
+
+        // Converts string to float
+        float strToFloat(string str)
+        {
+            float f;
+            try
+            {
+                f = float.Parse(str);
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+            return f;
         }
 
         public bool RemoveSpeciesBreedFoodType(int group, int speciesIndex, int breedIndex)

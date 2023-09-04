@@ -144,12 +144,31 @@ namespace FarmFeedingAppV2
         {
             string breed = cbxBreed.Text;
 
-            if (cbxGroup.SelectedIndex == 0)
+            bool added = false;
+
+            if (cbxGroup.SelectedIndex != 2)
             {
-                breed = "";
+                if (cbxGroup.SelectedIndex == 0)
+                {
+                    breed = "";
+                }
+
+                added = lm.AddSpeciesBreedType(cbxSpecies.SelectedIndex, cbxSpecies.Text, breed);
+            }
+            else if (cbxGroup.SelectedIndex == 2)
+            {
+                added = lm.AddFood(cbxSpecies.Text, cbxSpecies.Text);
             }
 
-            lm.AddSpeciesBreedType(cbxSpecies.SelectedIndex, cbxSpecies.Text, breed);
+            if (added)
+            {
+                MessageBox.Show("Category has been successfully added.", "Category Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Category was unable to be added, as it already exists or is invalid.", "Category Addition Failure", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
             updateData();
         }
 
