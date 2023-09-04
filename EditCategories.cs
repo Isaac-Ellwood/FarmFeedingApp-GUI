@@ -50,10 +50,34 @@ namespace FarmFeedingAppV2
         {
             if (cbxGroup.SelectedIndex == 0)
             {
+                // Changes source to be species & breed
+                cbxSpecies.DataSource = lm.GetSpeciesList();
+                try
+                {
+                    cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
+                }
+                catch (Exception)
+                {
+                    // Changes source to be none
+                    List<string> emptyString = new List<string>() { "" };
+                    cbxBreed.DataSource = emptyString;
+                }
                 cbxBreed.Hide();
             }
             else if (cbxGroup.SelectedIndex == 1)
             {
+                // Changes source to be species & breed
+                cbxSpecies.DataSource = lm.GetSpeciesList();
+                try
+                {
+                    cbxBreed.DataSource = lm.GetBreedsList()[cbxSpecies.SelectedIndex];
+                }
+                catch (Exception)
+                {
+                    // Changes source to be none
+                    List<string> emptyString = new List<string>() { "" };
+                    cbxBreed.DataSource = emptyString;
+                }
                 cbxBreed.Show();
             }
             else if (cbxGroup.SelectedIndex == 2)
