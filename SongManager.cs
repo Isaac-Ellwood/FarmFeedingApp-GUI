@@ -21,20 +21,44 @@ namespace FarmFeedingAppV2
     {
         // Attributes
         public SoundPlayer song;
+        private List<string> songList = new List<string>();
+        private List<int> songPlayCount;
+        private int highPlayCount = 0;
 
         // Constructs a Song Manager object
         public SongManager()
         {
-
+            addSongs();
         }
 
+        private void addSongs()
+        {
+            // Makes destination path string
+            string destinationPath = Path.Combine(Application.StartupPath, "..", "..", "Resources", "Songs"); //Assuming Test is your Folder
+            destinationPath = destinationPath.Replace('\u005C', '\u002F');
+            // Makes it a directoryinfo thing
+            DirectoryInfo d = new DirectoryInfo(destinationPath);
+
+            FileInfo[] Files = d.GetFiles("*.wav"); //Getting .wav files
+
+            foreach (FileInfo file in Files)
+            {
+                songList.Add(file.Name);
+                songPlayCount.Add(0);
+            }
+        }
+
+        // Plays a song from the list, with autoplay
         public void playSong(bool random, string songT)
         {
             string songTitle;
             if (random)
             {
-                // Fun code in here lolll
-                songTitle = songT;// For now
+                // Selects a random song
+                var rdm = new Random();
+                int index = rdm.Next(songList.Count);
+                songTitle = songList[index];
+                songPlayCount[index]++;
             }
             else
             {
@@ -42,12 +66,14 @@ namespace FarmFeedingAppV2
             }
 
             // Gets the destination path (thanks Isaac)
-            string destinationPath = Path.Combine(Application.StartupPath, "..", "..", "Resources", "Songs", songTitle+".wav");
+            string destinationPath = Path.Combine(Application.StartupPath, "..", "..", "Resources", "Songs", songTitle);
             destinationPath = destinationPath.Replace('\u005C', '\u002F');
 
             // plays the song
             song = new SoundPlayer(destinationPath);
             song.Play();
+            Thread thread = new Thread(SongEndTrigger);
+            thread.Start();
         }
 
         public void stopSong()
@@ -62,7 +88,7 @@ namespace FarmFeedingAppV2
             }
         }
 
-        async void Test()
+        async void SongEndTrigger()
         {
             using (song)
             {

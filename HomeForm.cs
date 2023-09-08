@@ -22,7 +22,6 @@ namespace FarmFeedingAppV2
         LivestockManager lm;
         PrivateFontCollection pfc;
         SongManager sm;
-        bool saved = false;
 
         public HomeForm(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
         {
@@ -33,7 +32,7 @@ namespace FarmFeedingAppV2
             this.sm = sm;
 
             // Plays a fun tune
-            sm.playSong(true, "chillin39-20915");
+            sm.playSong(true, "");
 
             // Sets font
             lblTitle.Font = new Font(pfc.Families[2], lblTitle.Font.Size);
