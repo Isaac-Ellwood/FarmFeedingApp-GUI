@@ -34,7 +34,7 @@ namespace FarmFeedingAppV2
             // Plays a fun tune
             sm.playSong(true, "");
 
-            // Sets font
+            // Sets fonts
             lblTitle.Font = new Font(pfc.Families[2], lblTitle.Font.Size);
 
             System.Drawing.FontFamily btnFont = pfc.Families[0];
@@ -42,6 +42,7 @@ namespace FarmFeedingAppV2
             btnAddLivestock.Font = new Font(btnFont, btnSize);
             btnFeedLivestock.Font = new Font(btnFont, btnSize);
             btnEditLivestockAndFoodCategories.Font = new Font(btnFont, btnSize);
+            btnDisplayData.Font = new Font(btnFont, btnSize);
 
             // Save data handling and checks
             if (lm.holdsData == false)

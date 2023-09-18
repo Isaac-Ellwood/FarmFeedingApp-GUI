@@ -245,7 +245,6 @@ namespace FarmFeedingAppV2
                 livestockHolders[speciesOrID].Feed(foodType, foodQuantity, date);
                 count++;
             }
-
             return count;
         }
 
