@@ -33,7 +33,7 @@ namespace FarmFeedingAppV2
         private void addSongs()
         {
             // Makes destination path string
-            string destinationPath = Path.Combine(Application.StartupPath, "..", "..", "Resources", "Songs"); //Assuming Test is your Folder
+            string destinationPath = Path.Combine(Application.StartupPath, "..", "..", "Resources", "Songs");
             destinationPath = destinationPath.Replace('\u005C', '\u002F');
             // Makes it a directoryinfo thing
             DirectoryInfo d = new DirectoryInfo(destinationPath);
