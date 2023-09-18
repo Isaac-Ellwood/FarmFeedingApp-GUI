@@ -22,8 +22,7 @@ namespace FarmFeedingAppV2
         // Attributes
         public SoundPlayer song;
         private List<string> songList = new List<string>();
-        private List<int> songPlayCount;
-        private int highPlayCount = 0;
+        private bool[] songPlayed;
 
         // Constructs a Song Manager object
         public SongManager()
@@ -41,10 +40,16 @@ namespace FarmFeedingAppV2
 
             FileInfo[] Files = d.GetFiles("*.wav"); //Getting .wav files
 
+            int fileCount = 0;
             foreach (FileInfo file in Files)
             {
                 songList.Add(file.Name);
-                songPlayCount.Add(0);
+                fileCount++;
+            }
+            songPlayed = new bool[fileCount];
+            for (int i = 0; i < songPlayed.Length; i++)
+            {
+                songPlayed[i] = false;
             }
         }
 
@@ -54,11 +59,36 @@ namespace FarmFeedingAppV2
             string songTitle;
             if (random)
             {
-                // Selects a random song
-                var rdm = new Random();
-                int index = rdm.Next(songList.Count);
-                songTitle = songList[index];
-                songPlayCount[index]++;
+                bool allPlayed = true;
+                // Checks if they are all played
+                for (int i = 0; i < songPlayed.Length; i++)
+                {
+                    if (songPlayed[i] == false)
+                    {
+                        allPlayed = false;
+                        break;
+                    }
+                }
+                // If all played, will set all to unplayed
+                if (allPlayed == true)
+                {
+                    for (int i = 0; i < songPlayed.Length; i++)
+                    {
+                        songPlayed[i] = false;
+                    }
+                }
+                // Selects a random unplayed song inefficiet but functional
+                while (true)
+                {
+                    var rdm = new Random();
+                    int index = rdm.Next(songList.Count);
+                    if (songPlayed[index] == false)
+                    {
+                        songTitle = songList[index];
+                        songPlayed[index] = true;
+                        break;
+                    }
+                }
             }
             else
             {
@@ -76,6 +106,7 @@ namespace FarmFeedingAppV2
             thread.Start();
         }
 
+        // Stops the song
         public void stopSong()
         {
             try
@@ -93,7 +124,8 @@ namespace FarmFeedingAppV2
             using (song)
             {
                 await Task.Run(() => { song.Load(); song.PlaySync(); });
-                MessageBox.Show("Finished. Now you can run your code here");
+                //Finished. Now you can run your code here :)
+                playSong(true, ""); // Plays next random song
             }
         }
     }
