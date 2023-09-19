@@ -16,15 +16,15 @@ namespace FarmFeedingAppV2
     {
         LivestockManager lm;
         PrivateFontCollection pfc;
-        SongManager sm;
+        EventManager em;
 
-        public Add_Livestock(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
+        public Add_Livestock(LivestockManager lm, PrivateFontCollection pfc, EventManager em)
         {
             // Initialises and stuff
             InitializeComponent();
             this.lm = lm;
             this.pfc = pfc;
-            this.sm = sm;
+            this.em = em;
             this.cbxSpecies.DataSource = lm.GetSpeciesList();
             this.cbxSpecies.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.cbxSpecies.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -57,7 +57,7 @@ namespace FarmFeedingAppV2
                 }
 
                 this.Hide();
-                HomeForm myNewForm = new HomeForm(lm, pfc, sm);
+                HomeForm myNewForm = new HomeForm(lm, pfc, em);
                 myNewForm.FormClosed += (s, args) => this.Close();
                 myNewForm.Show();
             }

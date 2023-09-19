@@ -16,16 +16,16 @@ namespace FarmFeedingAppV2
     {
         LivestockManager lm;
         PrivateFontCollection pfc;
-        SongManager sm;
+        EventManager em;
 
         DateTime currentDate = DateTime.Today;
 
-        public DisplayData(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
+        public DisplayData(LivestockManager lm, PrivateFontCollection pfc, EventManager em)
         {
             InitializeComponent();
             this.lm = lm;
             this.pfc = pfc;
-            this.sm = sm;
+            this.em = em;
 
             cbxMode.DataSource = new List<string>() { "Food Quantity", "Food Cost"};
             cbxGroup.DataSource = new List<string>() { "All", "Species", "Breed" };

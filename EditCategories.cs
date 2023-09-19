@@ -21,14 +21,14 @@ namespace FarmFeedingAppV2
     {
         LivestockManager lm;
         PrivateFontCollection pfc;
-        SongManager sm;
-        public EditCategories(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
+        EventManager em;
+        public EditCategories(LivestockManager lm, PrivateFontCollection pfc, EventManager em)
         {
             // Initialises and stuff
             InitializeComponent();
             this.lm = lm;
             this.pfc = pfc;
-            this.sm = sm;
+            this.em = em;
 
             cbxGroup.DataSource = new List<string>() {"Species","Breed","Food"};
             cbxSpecies.DataSource = lm.GetSpeciesList();
@@ -190,7 +190,7 @@ namespace FarmFeedingAppV2
         {
 
             this.Hide();
-            EditCategories myNewForm = new EditCategories(lm, pfc, sm);
+            EditCategories myNewForm = new EditCategories(lm, pfc, em);
             myNewForm.FormClosed += (s, args) => this.Close();
             myNewForm.Show();
 

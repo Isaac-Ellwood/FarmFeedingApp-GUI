@@ -15,15 +15,15 @@ namespace FarmFeedingAppV2
     {
         LivestockManager lm;
         PrivateFontCollection pfc;
-        SongManager sm;
+        EventManager em;
 
-        public FeedLivestock(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
+        public FeedLivestock(LivestockManager lm, PrivateFontCollection pfc, EventManager em)
         {
             // Initialises and stuff
             InitializeComponent();
             this.lm = lm;
             this.pfc = pfc;
-            this.sm = sm;
+            this.em = em;
             this.cbxGroup.DataSource = new List<string>() {"All","By species","By breed","By ID"};
             this.cbxFood.DataSource = lm.GetFoodList();
         }

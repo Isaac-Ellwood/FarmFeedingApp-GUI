@@ -21,28 +21,22 @@ namespace FarmFeedingAppV2
     {
         LivestockManager lm;
         PrivateFontCollection pfc;
-        SongManager sm;
+        EventManager em;
 
-        public HomeForm(LivestockManager lm, PrivateFontCollection pfc, SongManager sm)
+        public HomeForm(LivestockManager lm, PrivateFontCollection pfc, EventManager em)
         {
             // Initialises and stuff
             InitializeComponent();
             this.lm = lm;
             this.pfc = pfc;
-            this.sm = sm;
+            this.em = em;
 
             // Plays a fun tune
-            sm.playSong(true, "");
+            em.playSong(true, "");
 
             // Sets fonts
-            lblTitle.Font = new Font(pfc.Families[2], lblTitle.Font.Size);
 
-            System.Drawing.FontFamily btnFont = pfc.Families[0];
-            float btnSize = btnAddLivestock.Font.Size;
-            btnAddLivestock.Font = new Font(btnFont, btnSize);
-            btnFeedLivestock.Font = new Font(btnFont, btnSize);
-            btnEditLivestockAndFoodCategories.Font = new Font(btnFont, btnSize);
-            btnDisplayData.Font = new Font(btnFont, btnSize);
+            em.SetAllControlsFont(this.Controls, pfc);
 
             // Save data handling and checks
             if (lm.holdsData == false)
@@ -128,7 +122,7 @@ namespace FarmFeedingAppV2
         private void btnEditLivestockAndFoodCategories_Click(object sender, EventArgs e)
         {
             this.Hide();
-            EditCategories myNewForm = new EditCategories(lm, pfc, sm);
+            EditCategories myNewForm = new EditCategories(lm, pfc, em);
             myNewForm.FormClosed += (s, args) => this.Close();
             myNewForm.Show();
         }
@@ -138,7 +132,7 @@ namespace FarmFeedingAppV2
         private void btnFeedLivestock_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FeedLivestock myNewForm = new FeedLivestock(lm, pfc, sm);
+            FeedLivestock myNewForm = new FeedLivestock(lm, pfc, em);
             myNewForm.FormClosed += (s, args) => this.Close();
             myNewForm.Show();
         }
@@ -146,7 +140,7 @@ namespace FarmFeedingAppV2
         private void btnAddLivestock_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Add_Livestock myNewForm = new Add_Livestock(lm, pfc, sm);
+            Add_Livestock myNewForm = new Add_Livestock(lm, pfc, em);
             myNewForm.FormClosed += (s, args) => this.Close();
             myNewForm.Show();
         }
@@ -154,7 +148,7 @@ namespace FarmFeedingAppV2
         private void btnDisplayData_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DisplayData myNewForm = new DisplayData(lm, pfc, sm);
+            DisplayData myNewForm = new DisplayData(lm, pfc, em);
             myNewForm.FormClosed += (s, args) => this.Close();
             myNewForm.Show();
         }

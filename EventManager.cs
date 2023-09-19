@@ -17,7 +17,7 @@ using System.Windows.Forms;
 
 namespace FarmFeedingAppV2
 {
-    public class SongManager
+    public class EventManager
     {
         // Attributes
         public SoundPlayer song;
@@ -25,7 +25,7 @@ namespace FarmFeedingAppV2
         private bool[] songPlayed;
 
         // Constructs a Song Manager object
-        public SongManager()
+        public EventManager()
         {
             addSongs();
         }
@@ -126,6 +126,24 @@ namespace FarmFeedingAppV2
                 await Task.Run(() => { song.Load(); song.PlaySync(); });
                 //Finished. Now you can run your code here :)
                 playSong(true, ""); // Plays next random song
+            }
+        }
+
+        // Sets all fonts on a page to this. DOESNT WORK FOR BUTTONS BUT NEVERMIND LOLLLL
+        public void SetAllControlsFont(System.Windows.Forms.Control.ControlCollection ctrls, PrivateFontCollection pfc)
+        {
+            foreach (Control ctrl in ctrls)
+            {
+                if (ctrl.Controls != null)
+                    SetAllControlsFont(ctrl.Controls, pfc);
+
+                //ctrl.Font = new Font(pfc.Families[2], ctrl.Font.Size);
+                ctrl.Font = new Font(pfc.Families[2], ctrl.Font.Size);
+                if (ctrl.GetType == )
+                {
+
+                }
+
             }
         }
     }

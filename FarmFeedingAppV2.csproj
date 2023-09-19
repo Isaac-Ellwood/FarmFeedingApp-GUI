@@ -245,7 +245,7 @@
     <Compile Include="LivestockManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SongManager.cs" />
+    <Compile Include="EventManager.cs" />
     <Compile Include="SaveData.cs" />
     <EmbeddedResource Include="Add Livestock.resx">
       <DependentUpon>Add Livestock.cs</DependentUpon>
