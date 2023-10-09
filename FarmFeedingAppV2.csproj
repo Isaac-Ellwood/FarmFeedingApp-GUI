@@ -329,8 +329,20 @@
     <Content Include="Resources\gzdoom-4-10-0-Windows-64bit\libsndfile-1.dll" />
     <Content Include="Resources\gzdoom-4-10-0-Windows-64bit\openal32.dll" />
     <Content Include="Resources\gzdoom-4-10-0-Windows-64bit\zmusic.dll" />
-    <Content Include="Resources\Songs\chillin39-20915.wav" />
+    <Content Include="Resources\Songs\best-moments-positive-optimistic-loop-165519.wav" />
+    <Content Include="Resources\Songs\country-fun-131833.wav" />
+    <Content Include="Resources\Songs\dark-sheriff-150645.wav" />
+    <Content Include="Resources\Songs\farm-165253.wav" />
+    <Content Include="Resources\Songs\french-promenade-140625.wav" />
+    <Content Include="Resources\Songs\funny-country-129571.wav" />
+    <Content Include="Resources\Songs\happy-funny-kids-111912.wav" />
+    <Content Include="Resources\Songs\heroes-of-the-wild-west-126168.wav" />
+    <Content Include="Resources\Songs\lighthearted-love-110608.wav" />
+    <Content Include="Resources\Songs\my-sweet-country-home-country-waltz-8712.wav" />
     <Content Include="Resources\Songs\TheMostMysteriousSongOnTheInternet.wav" />
+    <Content Include="Resources\Songs\western-cowboy-164265.wav" />
+    <Content Include="Resources\Songs\western-rock-country-132231.wav" />
+    <Content Include="Resources\Songs\wild-west-wedding-126336.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

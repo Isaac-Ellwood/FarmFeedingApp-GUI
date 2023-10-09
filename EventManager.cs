@@ -139,10 +139,10 @@ namespace FarmFeedingAppV2
 
                 //ctrl.Font = new Font(pfc.Families[2], ctrl.Font.Size);
                 ctrl.Font = new Font(pfc.Families[2], ctrl.Font.Size);
-                if (ctrl.GetType == )
-                {
+                //if (ctrl.GetType == )
+                //{
 
-                }
+                //}
 
             }
         }
