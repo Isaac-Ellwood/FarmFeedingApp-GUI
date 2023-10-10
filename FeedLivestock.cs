@@ -104,5 +104,21 @@ namespace FarmFeedingAppV2
         {
             return "";
         }
+
+        // Save and exit program
+        private void btnSaveAndExit_Click(object sender, EventArgs e)
+        {
+            lm.SerialiseSaveData();
+            lm.saved = true;
+            this.Close();
+        }
+        // Returns to home screen
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomeForm myNewForm = new HomeForm(lm, pfc, em);
+            myNewForm.FormClosed += (s, args) => this.Close();
+            myNewForm.Show();
+        }
     }
 }

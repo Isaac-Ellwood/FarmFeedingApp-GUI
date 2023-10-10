@@ -36,6 +36,8 @@ namespace FarmFeedingAppV2
             this.nudFoodAmount = new System.Windows.Forms.NumericUpDown();
             this.btnFeedLivestock = new System.Windows.Forms.Button();
             this.dtpFeedDate = new System.Windows.Forms.DateTimePicker();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.btnSaveAndExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudFoodAmount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,7 +85,7 @@ namespace FarmFeedingAppV2
             // btnFeedLivestock
             // 
             this.btnFeedLivestock.Location = new System.Drawing.Point(993, 302);
-            this.btnFeedLivestock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFeedLivestock.Margin = new System.Windows.Forms.Padding(2);
             this.btnFeedLivestock.Name = "btnFeedLivestock";
             this.btnFeedLivestock.Size = new System.Drawing.Size(132, 19);
             this.btnFeedLivestock.TabIndex = 5;
@@ -98,11 +100,35 @@ namespace FarmFeedingAppV2
             this.dtpFeedDate.Size = new System.Drawing.Size(272, 20);
             this.dtpFeedDate.TabIndex = 7;
             // 
+            // btnSaveAndExit
+            // 
+            this.btnSaveAndExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnSaveAndExit.Location = new System.Drawing.Point(1551, 844);
+            this.btnSaveAndExit.Name = "btnSaveAndExit";
+            this.btnSaveAndExit.Size = new System.Drawing.Size(225, 85);
+            this.btnSaveAndExit.TabIndex = 8;
+            this.btnSaveAndExit.Text = "Save and Exit";
+            this.btnSaveAndExit.UseVisualStyleBackColor = true;
+            this.btnSaveAndExit.Click += new System.EventHandler(this.btnSaveAndExit_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnHome.Location = new System.Drawing.Point(1551, 753);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(225, 85);
+            this.btnHome.TabIndex = 9;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // FeedLivestock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1443, 857);
+            this.Controls.Add(this.btnSaveAndExit);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.dtpFeedDate);
             this.Controls.Add(this.btnFeedLivestock);
             this.Controls.Add(this.nudFoodAmount);
@@ -127,5 +153,7 @@ namespace FarmFeedingAppV2
         private System.Windows.Forms.NumericUpDown nudFoodAmount;
         private System.Windows.Forms.Button btnFeedLivestock;
         private System.Windows.Forms.DateTimePicker dtpFeedDate;
+        private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Button btnSaveAndExit;
     }
 }
