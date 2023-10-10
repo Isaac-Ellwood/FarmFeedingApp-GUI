@@ -29,9 +29,9 @@ namespace FarmFeedingAppV2
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chtStatGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cbxBreed = new System.Windows.Forms.ComboBox();
             this.cbxSpecies = new System.Windows.Forms.ComboBox();
@@ -39,23 +39,25 @@ namespace FarmFeedingAppV2
             this.cbxGroup = new System.Windows.Forms.ComboBox();
             this.nudGraphLength = new System.Windows.Forms.NumericUpDown();
             this.rtbSummaryText = new System.Windows.Forms.RichTextBox();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.btnSaveAndExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chtStatGraph)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudGraphLength)).BeginInit();
             this.SuspendLayout();
             // 
             // chtStatGraph
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chtStatGraph.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chtStatGraph.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chtStatGraph.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chtStatGraph.Legends.Add(legend1);
             this.chtStatGraph.Location = new System.Drawing.Point(127, 43);
             this.chtStatGraph.Name = "chtStatGraph";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chtStatGraph.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chtStatGraph.Series.Add(series1);
             this.chtStatGraph.Size = new System.Drawing.Size(998, 669);
             this.chtStatGraph.TabIndex = 1;
             this.chtStatGraph.Text = "chart1";
@@ -122,11 +124,35 @@ namespace FarmFeedingAppV2
             this.rtbSummaryText.TabIndex = 7;
             this.rtbSummaryText.Text = "";
             // 
+            // btnSaveAndExit
+            // 
+            this.btnSaveAndExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnSaveAndExit.Location = new System.Drawing.Point(1551, 844);
+            this.btnSaveAndExit.Name = "btnSaveAndExit";
+            this.btnSaveAndExit.Size = new System.Drawing.Size(225, 85);
+            this.btnSaveAndExit.TabIndex = 8;
+            this.btnSaveAndExit.Text = "Save and Exit";
+            this.btnSaveAndExit.UseVisualStyleBackColor = true;
+            this.btnSaveAndExit.Click += new System.EventHandler(this.btnSaveAndExit_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnHome.Location = new System.Drawing.Point(1551, 753);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(225, 85);
+            this.btnHome.TabIndex = 9;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // DisplayData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 999);
+            this.Controls.Add(this.btnSaveAndExit);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.rtbSummaryText);
             this.Controls.Add(this.nudGraphLength);
             this.Controls.Add(this.cbxGroup);
@@ -153,5 +179,7 @@ namespace FarmFeedingAppV2
         private System.Windows.Forms.ComboBox cbxGroup;
         private System.Windows.Forms.NumericUpDown nudGraphLength;
         private System.Windows.Forms.RichTextBox rtbSummaryText;
+        private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Button btnSaveAndExit;
     }
 }
