@@ -33,6 +33,8 @@ namespace FarmFeedingAppV2
             this.cbxBreed = new System.Windows.Forms.ComboBox();
             this.nudLivestockCount = new System.Windows.Forms.NumericUpDown();
             this.btnAddLivestock = new System.Windows.Forms.Button();
+            this.btnSaveAndExit = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudLivestockCount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,11 +79,35 @@ namespace FarmFeedingAppV2
             this.btnAddLivestock.UseVisualStyleBackColor = true;
             this.btnAddLivestock.Click += new System.EventHandler(this.btnAddLivestock_Click);
             // 
+            // btnSaveAndExit
+            // 
+            this.btnSaveAndExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnSaveAndExit.Location = new System.Drawing.Point(1551, 844);
+            this.btnSaveAndExit.Name = "btnSaveAndExit";
+            this.btnSaveAndExit.Size = new System.Drawing.Size(225, 85);
+            this.btnSaveAndExit.TabIndex = 6;
+            this.btnSaveAndExit.Text = "Save and Exit";
+            this.btnSaveAndExit.UseVisualStyleBackColor = true;
+            this.btnSaveAndExit.Click += new System.EventHandler(this.btnSaveAndExit_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnHome.Location = new System.Drawing.Point(1551, 753);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(225, 85);
+            this.btnHome.TabIndex = 5;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // Add_Livestock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 999);
+            this.Controls.Add(this.btnHome);
+            this.Controls.Add(this.btnSaveAndExit);
             this.Controls.Add(this.btnAddLivestock);
             this.Controls.Add(this.nudLivestockCount);
             this.Controls.Add(this.cbxBreed);
@@ -100,5 +126,7 @@ namespace FarmFeedingAppV2
         private System.Windows.Forms.ComboBox cbxBreed;
         private System.Windows.Forms.NumericUpDown nudLivestockCount;
         private System.Windows.Forms.Button btnAddLivestock;
+        private System.Windows.Forms.Button btnSaveAndExit;
+        private System.Windows.Forms.Button btnHome;
     }
 }

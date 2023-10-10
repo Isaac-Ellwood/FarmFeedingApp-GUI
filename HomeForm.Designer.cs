@@ -36,10 +36,11 @@ namespace FarmFeedingAppV2
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnDisplayData = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            float BUTTONFONTSIZE = 14F;
             // 
             // btnAddLivestock
             // 
-            this.btnAddLivestock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnAddLivestock.Font = new System.Drawing.Font("Microsoft Sans Serif", BUTTONFONTSIZE);
             this.btnAddLivestock.Location = new System.Drawing.Point(154, 340);
             this.btnAddLivestock.Name = "btnAddLivestock";
             this.btnAddLivestock.Size = new System.Drawing.Size(249, 85);
@@ -50,6 +51,7 @@ namespace FarmFeedingAppV2
             // 
             // btnSaveAndExit
             // 
+            this.btnSaveAndExit.Font = new System.Drawing.Font("Microsoft Sans Serif", BUTTONFONTSIZE);
             this.btnSaveAndExit.Location = new System.Drawing.Point(1551, 844);
             this.btnSaveAndExit.Name = "btnSaveAndExit";
             this.btnSaveAndExit.Size = new System.Drawing.Size(225, 85);
@@ -60,6 +62,7 @@ namespace FarmFeedingAppV2
             // 
             // btnFeedLivestock
             // 
+            this.btnFeedLivestock.Font = new System.Drawing.Font("Microsoft Sans Serif", BUTTONFONTSIZE);
             this.btnFeedLivestock.Location = new System.Drawing.Point(154, 447);
             this.btnFeedLivestock.Name = "btnFeedLivestock";
             this.btnFeedLivestock.Size = new System.Drawing.Size(249, 85);
@@ -70,6 +73,7 @@ namespace FarmFeedingAppV2
             // 
             // btnEditLivestockAndFoodCategories
             // 
+            this.btnEditLivestockAndFoodCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", BUTTONFONTSIZE);
             this.btnEditLivestockAndFoodCategories.Location = new System.Drawing.Point(154, 554);
             this.btnEditLivestockAndFoodCategories.Name = "btnEditLivestockAndFoodCategories";
             this.btnEditLivestockAndFoodCategories.Size = new System.Drawing.Size(249, 85);
@@ -92,6 +96,7 @@ namespace FarmFeedingAppV2
             // 
             // btnDisplayData
             // 
+            this.btnDisplayData.Font = new System.Drawing.Font("Microsoft Sans Serif", BUTTONFONTSIZE);
             this.btnDisplayData.Location = new System.Drawing.Point(154, 657);
             this.btnDisplayData.Name = "btnDisplayData";
             this.btnDisplayData.Size = new System.Drawing.Size(249, 85);

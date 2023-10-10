@@ -77,7 +77,7 @@ namespace FarmFeedingAppV2
                         songPlayed[i] = false;
                     }
                 }
-                // Selects a random unplayed song inefficiet but functional
+                // Selects a random unplayed song (inefficient but functional)
                 while (true)
                 {
                     var rdm = new Random();
@@ -139,11 +139,6 @@ namespace FarmFeedingAppV2
 
                 //ctrl.Font = new Font(pfc.Families[2], ctrl.Font.Size);
                 ctrl.Font = new Font(pfc.Families[2], ctrl.Font.Size);
-                if (ctrl.GetType == )
-                {
-
-                }
-
             }
         }
     }
