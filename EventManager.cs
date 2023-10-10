@@ -15,6 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace FarmFeedingAppV2
 {
     public class EventManager
@@ -136,9 +137,6 @@ namespace FarmFeedingAppV2
             {
                 if (ctrl.Controls != null)
                     SetAllControlsFont(ctrl.Controls, pfc);
-
-                //ctrl.Font = new Font(pfc.Families[2], ctrl.Font.Size);
-                ctrl.Font = new Font(pfc.Families[2], ctrl.Font.Size);
             }
         }
     }

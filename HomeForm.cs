@@ -35,7 +35,6 @@ namespace FarmFeedingAppV2
             em.playSong(true, "");
 
             // Sets fonts
-
             em.SetAllControlsFont(this.Controls, pfc);
 
             // Save data handling and checks
