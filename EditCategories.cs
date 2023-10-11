@@ -63,6 +63,7 @@ namespace FarmFeedingAppV2
                     cbxBreed.DataSource = emptyString;
                 }
                 cbxBreed.Hide();
+                lblBreed.Hide();
             }
             else if (cbxGroup.SelectedIndex == 1)
             {
@@ -79,13 +80,18 @@ namespace FarmFeedingAppV2
                     cbxBreed.DataSource = emptyString;
                 }
                 cbxBreed.Show();
+                lblBreed.Show();
             }
             else if (cbxGroup.SelectedIndex == 2)
             {
-                // Changes source to be none
+                // Changes source
                 cbxSpecies.DataSource = lm.GetFoodList();
+                lblSpecies.Hide();
+                lblFood
                 cbxBreed.DataSource = lm.GetFoodCostList();
                 cbxBreed.Show();
+                lblBreed.Hide();
+                lblPrice.Show();
             }
         }
 

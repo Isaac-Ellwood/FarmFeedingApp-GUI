@@ -39,6 +39,8 @@ namespace FarmFeedingAppV2
             this.lblGroup = new System.Windows.Forms.Label();
             this.lblSpecies = new System.Windows.Forms.Label();
             this.lblBreed = new System.Windows.Forms.Label();
+            this.lblFood = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cbxSpecies
@@ -140,11 +142,33 @@ namespace FarmFeedingAppV2
             this.lblBreed.TabIndex = 10;
             this.lblBreed.Text = "Breed";
             // 
+            // lblFood
+            // 
+            this.lblFood.AutoSize = true;
+            this.lblFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFood.Location = new System.Drawing.Point(255, 145);
+            this.lblFood.Name = "lblFood";
+            this.lblFood.Size = new System.Drawing.Size(55, 24);
+            this.lblFood.TabIndex = 11;
+            this.lblFood.Text = "Food";
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Location = new System.Drawing.Point(382, 145);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(53, 24);
+            this.lblPrice.TabIndex = 12;
+            this.lblPrice.Text = "Price";
+            // 
             // EditCategories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 999);
+            this.Controls.Add(this.lblPrice);
+            this.Controls.Add(this.lblFood);
             this.Controls.Add(this.lblBreed);
             this.Controls.Add(this.lblSpecies);
             this.Controls.Add(this.lblGroup);
@@ -176,5 +200,7 @@ namespace FarmFeedingAppV2
         private System.Windows.Forms.Label lblGroup;
         private System.Windows.Forms.Label lblSpecies;
         private System.Windows.Forms.Label lblBreed;
+        private System.Windows.Forms.Label lblFood;
+        private System.Windows.Forms.Label lblPrice;
     }
 }

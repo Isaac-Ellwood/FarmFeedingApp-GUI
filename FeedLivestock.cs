@@ -34,25 +34,37 @@ namespace FarmFeedingAppV2
             if (cbxGroup.SelectedIndex == 0)
             {
                 cbxSpeciesOrID.Hide();
+                lblSpecies.Hide();
+                lblID.Hide();
                 cbxBreed.Hide();
+                lblBreed.Hide();
             }
             else if (cbxGroup.SelectedIndex == 1)
             {
                 cbxSpeciesOrID.Show();
+                lblSpecies.Show();
+                lblID.Hide();
                 cbxBreed.Hide();
+                lblBreed.Hide();
                 cbxSpeciesOrID.DataSource = lm.GetSpeciesList();
             }
             else if (cbxGroup.SelectedIndex == 2)
             {
                 cbxSpeciesOrID.Show();
+                lblSpecies.Show();
+                lblID.Hide();
                 cbxBreed.Show();
+                lblBreed.Show();
                 cbxSpeciesOrID.DataSource = lm.GetSpeciesList();
                 cbxBreed.DataSource = lm.GetBreedsList()[cbxSpeciesOrID.SelectedIndex];
             }
             else
             {
                 cbxSpeciesOrID.Show();
+                lblSpecies.Hide();
+                lblID.Show();
                 cbxBreed.Hide();
+                lblBreed.Hide();
                 cbxSpeciesOrID.DataSource = lm.GetIDList();
             }
         }

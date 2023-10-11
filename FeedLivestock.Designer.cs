@@ -44,6 +44,7 @@ namespace FarmFeedingAppV2
             this.lblQuantity = new System.Windows.Forms.Label();
             this.lblFood = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudFoodAmount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -188,11 +189,22 @@ namespace FarmFeedingAppV2
             this.lblDate.TabIndex = 15;
             this.lblDate.Text = "Date";
             // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Location = new System.Drawing.Point(251, 347);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(27, 24);
+            this.lblID.TabIndex = 16;
+            this.lblID.Text = "ID";
+            // 
             // FeedLivestock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1443, 857);
+            this.Controls.Add(this.lblID);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblFood);
             this.Controls.Add(this.lblQuantity);
@@ -234,5 +246,6 @@ namespace FarmFeedingAppV2
         private System.Windows.Forms.Label lblQuantity;
         private System.Windows.Forms.Label lblFood;
         private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label lblID;
     }
 }
