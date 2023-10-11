@@ -36,6 +36,9 @@ namespace FarmFeedingAppV2
             this.cbxGroup = new System.Windows.Forms.ComboBox();
             this.btnSaveAndExit = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
+            this.lblGroup = new System.Windows.Forms.Label();
+            this.lblSpecies = new System.Windows.Forms.Label();
+            this.lblBreed = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cbxSpecies
@@ -107,11 +110,44 @@ namespace FarmFeedingAppV2
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
+            // lblGroup
+            // 
+            this.lblGroup.AutoSize = true;
+            this.lblGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGroup.Location = new System.Drawing.Point(128, 145);
+            this.lblGroup.Name = "lblGroup";
+            this.lblGroup.Size = new System.Drawing.Size(63, 24);
+            this.lblGroup.TabIndex = 8;
+            this.lblGroup.Text = "Group";
+            // 
+            // lblSpecies
+            // 
+            this.lblSpecies.AutoSize = true;
+            this.lblSpecies.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpecies.Location = new System.Drawing.Point(255, 145);
+            this.lblSpecies.Name = "lblSpecies";
+            this.lblSpecies.Size = new System.Drawing.Size(78, 24);
+            this.lblSpecies.TabIndex = 9;
+            this.lblSpecies.Text = "Species";
+            // 
+            // lblBreed
+            // 
+            this.lblBreed.AutoSize = true;
+            this.lblBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBreed.Location = new System.Drawing.Point(382, 145);
+            this.lblBreed.Name = "lblBreed";
+            this.lblBreed.Size = new System.Drawing.Size(61, 24);
+            this.lblBreed.TabIndex = 10;
+            this.lblBreed.Text = "Breed";
+            // 
             // EditCategories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 999);
+            this.Controls.Add(this.lblBreed);
+            this.Controls.Add(this.lblSpecies);
+            this.Controls.Add(this.lblGroup);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnSaveAndExit);
             this.Controls.Add(this.cbxGroup);
@@ -125,6 +161,7 @@ namespace FarmFeedingAppV2
             this.Text = "EditCategories";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -136,5 +173,8 @@ namespace FarmFeedingAppV2
         private System.Windows.Forms.ComboBox cbxGroup;
         private System.Windows.Forms.Button btnSaveAndExit;
         private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Label lblGroup;
+        private System.Windows.Forms.Label lblSpecies;
+        private System.Windows.Forms.Label lblBreed;
     }
 }

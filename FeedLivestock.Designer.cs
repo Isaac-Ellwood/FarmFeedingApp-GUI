@@ -38,6 +38,12 @@ namespace FarmFeedingAppV2
             this.dtpFeedDate = new System.Windows.Forms.DateTimePicker();
             this.btnHome = new System.Windows.Forms.Button();
             this.btnSaveAndExit = new System.Windows.Forms.Button();
+            this.lblSpecies = new System.Windows.Forms.Label();
+            this.lblGroup = new System.Windows.Forms.Label();
+            this.lblBreed = new System.Windows.Forms.Label();
+            this.lblQuantity = new System.Windows.Forms.Label();
+            this.lblFood = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudFoodAmount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +59,7 @@ namespace FarmFeedingAppV2
             // cbxSpeciesOrID
             // 
             this.cbxSpeciesOrID.FormattingEnabled = true;
-            this.cbxSpeciesOrID.Location = new System.Drawing.Point(413, 284);
+            this.cbxSpeciesOrID.Location = new System.Drawing.Point(257, 374);
             this.cbxSpeciesOrID.Name = "cbxSpeciesOrID";
             this.cbxSpeciesOrID.Size = new System.Drawing.Size(121, 21);
             this.cbxSpeciesOrID.TabIndex = 1;
@@ -62,7 +68,7 @@ namespace FarmFeedingAppV2
             // cbxBreed
             // 
             this.cbxBreed.FormattingEnabled = true;
-            this.cbxBreed.Location = new System.Drawing.Point(579, 284);
+            this.cbxBreed.Location = new System.Drawing.Point(255, 448);
             this.cbxBreed.Name = "cbxBreed";
             this.cbxBreed.Size = new System.Drawing.Size(121, 21);
             this.cbxBreed.TabIndex = 2;
@@ -70,24 +76,24 @@ namespace FarmFeedingAppV2
             // cbxFood
             // 
             this.cbxFood.FormattingEnabled = true;
-            this.cbxFood.Location = new System.Drawing.Point(844, 302);
+            this.cbxFood.Location = new System.Drawing.Point(732, 318);
             this.cbxFood.Name = "cbxFood";
             this.cbxFood.Size = new System.Drawing.Size(121, 21);
             this.cbxFood.TabIndex = 3;
             // 
             // nudFoodAmount
             // 
-            this.nudFoodAmount.Location = new System.Drawing.Point(718, 303);
+            this.nudFoodAmount.Location = new System.Drawing.Point(572, 318);
             this.nudFoodAmount.Name = "nudFoodAmount";
             this.nudFoodAmount.Size = new System.Drawing.Size(120, 20);
             this.nudFoodAmount.TabIndex = 4;
             // 
             // btnFeedLivestock
             // 
-            this.btnFeedLivestock.Location = new System.Drawing.Point(993, 302);
+            this.btnFeedLivestock.Location = new System.Drawing.Point(994, 353);
             this.btnFeedLivestock.Margin = new System.Windows.Forms.Padding(2);
             this.btnFeedLivestock.Name = "btnFeedLivestock";
-            this.btnFeedLivestock.Size = new System.Drawing.Size(132, 19);
+            this.btnFeedLivestock.Size = new System.Drawing.Size(132, 79);
             this.btnFeedLivestock.TabIndex = 5;
             this.btnFeedLivestock.Text = "Feed Livestock";
             this.btnFeedLivestock.UseVisualStyleBackColor = true;
@@ -95,21 +101,10 @@ namespace FarmFeedingAppV2
             // 
             // dtpFeedDate
             // 
-            this.dtpFeedDate.Location = new System.Drawing.Point(712, 386);
+            this.dtpFeedDate.Location = new System.Drawing.Point(581, 435);
             this.dtpFeedDate.Name = "dtpFeedDate";
             this.dtpFeedDate.Size = new System.Drawing.Size(272, 20);
             this.dtpFeedDate.TabIndex = 7;
-            // 
-            // btnSaveAndExit
-            // 
-            this.btnSaveAndExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnSaveAndExit.Location = new System.Drawing.Point(1551, 844);
-            this.btnSaveAndExit.Name = "btnSaveAndExit";
-            this.btnSaveAndExit.Size = new System.Drawing.Size(225, 85);
-            this.btnSaveAndExit.TabIndex = 8;
-            this.btnSaveAndExit.Text = "Save and Exit";
-            this.btnSaveAndExit.UseVisualStyleBackColor = true;
-            this.btnSaveAndExit.Click += new System.EventHandler(this.btnSaveAndExit_Click);
             // 
             // btnHome
             // 
@@ -122,11 +117,88 @@ namespace FarmFeedingAppV2
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
+            // btnSaveAndExit
+            // 
+            this.btnSaveAndExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnSaveAndExit.Location = new System.Drawing.Point(1551, 844);
+            this.btnSaveAndExit.Name = "btnSaveAndExit";
+            this.btnSaveAndExit.Size = new System.Drawing.Size(225, 85);
+            this.btnSaveAndExit.TabIndex = 8;
+            this.btnSaveAndExit.Text = "Save and Exit";
+            this.btnSaveAndExit.UseVisualStyleBackColor = true;
+            this.btnSaveAndExit.Click += new System.EventHandler(this.btnSaveAndExit_Click);
+            // 
+            // lblSpecies
+            // 
+            this.lblSpecies.AutoSize = true;
+            this.lblSpecies.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpecies.Location = new System.Drawing.Point(253, 347);
+            this.lblSpecies.Name = "lblSpecies";
+            this.lblSpecies.Size = new System.Drawing.Size(78, 24);
+            this.lblSpecies.TabIndex = 10;
+            this.lblSpecies.Text = "Species";
+            // 
+            // lblGroup
+            // 
+            this.lblGroup.AutoSize = true;
+            this.lblGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGroup.Location = new System.Drawing.Point(251, 276);
+            this.lblGroup.Name = "lblGroup";
+            this.lblGroup.Size = new System.Drawing.Size(63, 24);
+            this.lblGroup.TabIndex = 11;
+            this.lblGroup.Text = "Group";
+            // 
+            // lblBreed
+            // 
+            this.lblBreed.AutoSize = true;
+            this.lblBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBreed.Location = new System.Drawing.Point(251, 421);
+            this.lblBreed.Name = "lblBreed";
+            this.lblBreed.Size = new System.Drawing.Size(61, 24);
+            this.lblBreed.TabIndex = 12;
+            this.lblBreed.Text = "Breed";
+            // 
+            // lblQuantity
+            // 
+            this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantity.Location = new System.Drawing.Point(562, 288);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(147, 24);
+            this.lblQuantity.TabIndex = 13;
+            this.lblQuantity.Text = "Quantity (grams)";
+            // 
+            // lblFood
+            // 
+            this.lblFood.AutoSize = true;
+            this.lblFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFood.Location = new System.Drawing.Point(728, 289);
+            this.lblFood.Name = "lblFood";
+            this.lblFood.Size = new System.Drawing.Size(55, 24);
+            this.lblFood.TabIndex = 14;
+            this.lblFood.Text = "Food";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(577, 408);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(48, 24);
+            this.lblDate.TabIndex = 15;
+            this.lblDate.Text = "Date";
+            // 
             // FeedLivestock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1443, 857);
+            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.lblFood);
+            this.Controls.Add(this.lblQuantity);
+            this.Controls.Add(this.lblBreed);
+            this.Controls.Add(this.lblGroup);
+            this.Controls.Add(this.lblSpecies);
             this.Controls.Add(this.btnSaveAndExit);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.dtpFeedDate);
@@ -141,6 +213,7 @@ namespace FarmFeedingAppV2
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.nudFoodAmount)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -155,5 +228,11 @@ namespace FarmFeedingAppV2
         private System.Windows.Forms.DateTimePicker dtpFeedDate;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnSaveAndExit;
+        private System.Windows.Forms.Label lblSpecies;
+        private System.Windows.Forms.Label lblGroup;
+        private System.Windows.Forms.Label lblBreed;
+        private System.Windows.Forms.Label lblQuantity;
+        private System.Windows.Forms.Label lblFood;
+        private System.Windows.Forms.Label lblDate;
     }
 }

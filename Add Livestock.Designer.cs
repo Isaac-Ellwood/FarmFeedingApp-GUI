@@ -35,6 +35,9 @@ namespace FarmFeedingAppV2
             this.btnAddLivestock = new System.Windows.Forms.Button();
             this.btnSaveAndExit = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
+            this.lblSpecies = new System.Windows.Forms.Label();
+            this.lblBreed = new System.Windows.Forms.Label();
+            this.lblQuantity = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudLivestockCount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,11 +104,44 @@ namespace FarmFeedingAppV2
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
+            // lblSpecies
+            // 
+            this.lblSpecies.AutoSize = true;
+            this.lblSpecies.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpecies.Location = new System.Drawing.Point(398, 264);
+            this.lblSpecies.Name = "lblSpecies";
+            this.lblSpecies.Size = new System.Drawing.Size(83, 24);
+            this.lblSpecies.TabIndex = 7;
+            this.lblSpecies.Text = "Species:";
+            // 
+            // lblBreed
+            // 
+            this.lblBreed.AutoSize = true;
+            this.lblBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBreed.Location = new System.Drawing.Point(581, 263);
+            this.lblBreed.Name = "lblBreed";
+            this.lblBreed.Size = new System.Drawing.Size(66, 24);
+            this.lblBreed.TabIndex = 8;
+            this.lblBreed.Text = "Breed:";
+            // 
+            // lblQuantity
+            // 
+            this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantity.Location = new System.Drawing.Point(783, 263);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(83, 24);
+            this.lblQuantity.TabIndex = 9;
+            this.lblQuantity.Text = "Quantity:";
+            // 
             // Add_Livestock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 999);
+            this.Controls.Add(this.lblQuantity);
+            this.Controls.Add(this.lblBreed);
+            this.Controls.Add(this.lblSpecies);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnSaveAndExit);
             this.Controls.Add(this.btnAddLivestock);
@@ -117,6 +153,7 @@ namespace FarmFeedingAppV2
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.nudLivestockCount)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -128,5 +165,8 @@ namespace FarmFeedingAppV2
         private System.Windows.Forms.Button btnAddLivestock;
         private System.Windows.Forms.Button btnSaveAndExit;
         private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Label lblSpecies;
+        private System.Windows.Forms.Label lblBreed;
+        private System.Windows.Forms.Label lblQuantity;
     }
 }
