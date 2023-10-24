@@ -36,11 +36,10 @@ namespace FarmFeedingAppV2
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnDisplayData = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            float BUTTONFONTSIZE = 14F;
             // 
             // btnAddLivestock
             // 
-            this.btnAddLivestock.Font = new System.Drawing.Font("Microsoft Sans Serif", BUTTONFONTSIZE);
+            this.btnAddLivestock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnAddLivestock.Location = new System.Drawing.Point(154, 340);
             this.btnAddLivestock.Name = "btnAddLivestock";
             this.btnAddLivestock.Size = new System.Drawing.Size(249, 85);
@@ -51,7 +50,7 @@ namespace FarmFeedingAppV2
             // 
             // btnSaveAndExit
             // 
-            this.btnSaveAndExit.Font = new System.Drawing.Font("Microsoft Sans Serif", BUTTONFONTSIZE);
+            this.btnSaveAndExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnSaveAndExit.Location = new System.Drawing.Point(1551, 844);
             this.btnSaveAndExit.Name = "btnSaveAndExit";
             this.btnSaveAndExit.Size = new System.Drawing.Size(225, 85);
@@ -62,7 +61,7 @@ namespace FarmFeedingAppV2
             // 
             // btnFeedLivestock
             // 
-            this.btnFeedLivestock.Font = new System.Drawing.Font("Microsoft Sans Serif", BUTTONFONTSIZE);
+            this.btnFeedLivestock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnFeedLivestock.Location = new System.Drawing.Point(154, 447);
             this.btnFeedLivestock.Name = "btnFeedLivestock";
             this.btnFeedLivestock.Size = new System.Drawing.Size(249, 85);
@@ -73,7 +72,7 @@ namespace FarmFeedingAppV2
             // 
             // btnEditLivestockAndFoodCategories
             // 
-            this.btnEditLivestockAndFoodCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", BUTTONFONTSIZE);
+            this.btnEditLivestockAndFoodCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnEditLivestockAndFoodCategories.Location = new System.Drawing.Point(154, 554);
             this.btnEditLivestockAndFoodCategories.Name = "btnEditLivestockAndFoodCategories";
             this.btnEditLivestockAndFoodCategories.Size = new System.Drawing.Size(249, 85);
@@ -86,17 +85,17 @@ namespace FarmFeedingAppV2
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(348, 94);
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 82F);
+            this.lblTitle.Location = new System.Drawing.Point(503, 99);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(849, 124);
+            this.lblTitle.Size = new System.Drawing.Size(967, 141);
             this.lblTitle.TabIndex = 4;
             this.lblTitle.Text = "Farm Feeding App";
             this.lblTitle.UseCompatibleTextRendering = true;
             // 
             // btnDisplayData
             // 
-            this.btnDisplayData.Font = new System.Drawing.Font("Microsoft Sans Serif", BUTTONFONTSIZE);
+            this.btnDisplayData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnDisplayData.Location = new System.Drawing.Point(154, 657);
             this.btnDisplayData.Name = "btnDisplayData";
             this.btnDisplayData.Size = new System.Drawing.Size(249, 85);
@@ -118,7 +117,7 @@ namespace FarmFeedingAppV2
             this.Controls.Add(this.btnFeedLivestock);
             this.Controls.Add(this.btnSaveAndExit);
             this.Controls.Add(this.btnAddLivestock);
-            this.MinimumSize = new System.Drawing.Size(1918, 1038);
+            this.MinimumSize = new System.Drawing.Size(1918, 1030);
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";

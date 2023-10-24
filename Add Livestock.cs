@@ -28,6 +28,8 @@ namespace FarmFeedingAppV2
             this.cbxSpecies.DataSource = lm.GetSpeciesList();
             this.cbxSpecies.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.cbxSpecies.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            // Sets fonts
+            em.SetAllControlsFont(this.Controls, pfc);
         }
 
         // Changes Breed combo box to display breeds for each species

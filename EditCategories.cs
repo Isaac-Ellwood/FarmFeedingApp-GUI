@@ -32,6 +32,12 @@ namespace FarmFeedingAppV2
 
             cbxGroup.DataSource = new List<string>() {"Species","Breed","Food"};
             cbxSpecies.DataSource = lm.GetSpeciesList();
+            // Changes source
+            lblSpecies.Hide();
+            lblFood.Hide();
+            cbxBreed.Hide();
+            lblBreed.Hide();
+            lblPrice.Hide();
             // Changes to be in line with species
             try
             {
@@ -64,6 +70,10 @@ namespace FarmFeedingAppV2
                 }
                 cbxBreed.Hide();
                 lblBreed.Hide();
+                cbxSpecies.Show();
+                lblSpecies.Show();
+                lblFood.Hide();
+                lblPrice.Hide();
             }
             else if (cbxGroup.SelectedIndex == 1)
             {
@@ -79,15 +89,19 @@ namespace FarmFeedingAppV2
                     List<string> emptyString = new List<string>() { "" };
                     cbxBreed.DataSource = emptyString;
                 }
+                cbxSpecies.Show();
+                lblSpecies.Show();
                 cbxBreed.Show();
                 lblBreed.Show();
+                lblFood.Hide();
+                lblPrice.Hide();
             }
             else if (cbxGroup.SelectedIndex == 2)
             {
                 // Changes source
                 cbxSpecies.DataSource = lm.GetFoodList();
                 lblSpecies.Hide();
-                lblFood
+                lblFood.Show();
                 cbxBreed.DataSource = lm.GetFoodCostList();
                 cbxBreed.Show();
                 lblBreed.Hide();

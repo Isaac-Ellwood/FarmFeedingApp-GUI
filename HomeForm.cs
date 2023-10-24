@@ -26,10 +26,11 @@ namespace FarmFeedingAppV2
         public HomeForm(LivestockManager lm, PrivateFontCollection pfc, EventManager em)
         {
             // Initialises and stuff
-            InitializeComponent();
+            
             this.lm = lm;
             this.pfc = pfc;
             this.em = em;
+            InitializeComponent();
 
             // Plays a fun tune
             em.playSong(true, "");

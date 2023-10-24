@@ -44,37 +44,41 @@ namespace FarmFeedingAppV2
             // cbxSpecies
             // 
             this.cbxSpecies.AllowDrop = true;
+            this.cbxSpecies.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.cbxSpecies.FormattingEnabled = true;
-            this.cbxSpecies.Location = new System.Drawing.Point(402, 291);
+            this.cbxSpecies.Location = new System.Drawing.Point(358, 386);
             this.cbxSpecies.Name = "cbxSpecies";
-            this.cbxSpecies.Size = new System.Drawing.Size(121, 21);
+            this.cbxSpecies.Size = new System.Drawing.Size(325, 39);
             this.cbxSpecies.TabIndex = 0;
             this.cbxSpecies.SelectedIndexChanged += new System.EventHandler(this.cbxSpecies_SelectedIndexChanged);
             // 
             // cbxBreed
             // 
             this.cbxBreed.AllowDrop = true;
+            this.cbxBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.cbxBreed.FormattingEnabled = true;
-            this.cbxBreed.Location = new System.Drawing.Point(585, 290);
+            this.cbxBreed.Location = new System.Drawing.Point(757, 386);
             this.cbxBreed.Name = "cbxBreed";
-            this.cbxBreed.Size = new System.Drawing.Size(121, 21);
+            this.cbxBreed.Size = new System.Drawing.Size(340, 39);
             this.cbxBreed.TabIndex = 1;
             // 
             // nudLivestockCount
             // 
-            this.nudLivestockCount.Location = new System.Drawing.Point(787, 291);
+            this.nudLivestockCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.nudLivestockCount.Location = new System.Drawing.Point(1167, 387);
             this.nudLivestockCount.Maximum = new decimal(new int[] {
             100000000,
             0,
             0,
             0});
             this.nudLivestockCount.Name = "nudLivestockCount";
-            this.nudLivestockCount.Size = new System.Drawing.Size(120, 20);
+            this.nudLivestockCount.Size = new System.Drawing.Size(158, 38);
             this.nudLivestockCount.TabIndex = 2;
             // 
             // btnAddLivestock
             // 
-            this.btnAddLivestock.Location = new System.Drawing.Point(976, 326);
+            this.btnAddLivestock.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.btnAddLivestock.Location = new System.Drawing.Point(1167, 488);
             this.btnAddLivestock.Name = "btnAddLivestock";
             this.btnAddLivestock.Size = new System.Drawing.Size(182, 48);
             this.btnAddLivestock.TabIndex = 3;
@@ -107,30 +111,30 @@ namespace FarmFeedingAppV2
             // lblSpecies
             // 
             this.lblSpecies.AutoSize = true;
-            this.lblSpecies.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpecies.Location = new System.Drawing.Point(398, 264);
+            this.lblSpecies.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblSpecies.Location = new System.Drawing.Point(352, 338);
             this.lblSpecies.Name = "lblSpecies";
-            this.lblSpecies.Size = new System.Drawing.Size(83, 24);
+            this.lblSpecies.Size = new System.Drawing.Size(119, 31);
             this.lblSpecies.TabIndex = 7;
             this.lblSpecies.Text = "Species:";
             // 
             // lblBreed
             // 
             this.lblBreed.AutoSize = true;
-            this.lblBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBreed.Location = new System.Drawing.Point(581, 263);
+            this.lblBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblBreed.Location = new System.Drawing.Point(751, 338);
             this.lblBreed.Name = "lblBreed";
-            this.lblBreed.Size = new System.Drawing.Size(66, 24);
+            this.lblBreed.Size = new System.Drawing.Size(94, 31);
             this.lblBreed.TabIndex = 8;
             this.lblBreed.Text = "Breed:";
             // 
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(783, 263);
+            this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblQuantity.Location = new System.Drawing.Point(1161, 338);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(83, 24);
+            this.lblQuantity.Size = new System.Drawing.Size(124, 31);
             this.lblQuantity.TabIndex = 9;
             this.lblQuantity.Text = "Quantity:";
             // 

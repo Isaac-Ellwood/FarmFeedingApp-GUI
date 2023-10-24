@@ -29,9 +29,9 @@ namespace FarmFeedingAppV2
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chtStatGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cbxBreed = new System.Windows.Forms.ComboBox();
             this.cbxSpecies = new System.Windows.Forms.ComboBox();
@@ -47,67 +47,72 @@ namespace FarmFeedingAppV2
             // 
             // chtStatGraph
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chtStatGraph.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chtStatGraph.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chtStatGraph.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chtStatGraph.Legends.Add(legend2);
             this.chtStatGraph.Location = new System.Drawing.Point(127, 43);
             this.chtStatGraph.Name = "chtStatGraph";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chtStatGraph.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chtStatGraph.Series.Add(series2);
             this.chtStatGraph.Size = new System.Drawing.Size(998, 669);
             this.chtStatGraph.TabIndex = 1;
             this.chtStatGraph.Text = "chart1";
             // 
             // cbxBreed
             // 
+            this.cbxBreed.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxBreed.FormattingEnabled = true;
-            this.cbxBreed.Location = new System.Drawing.Point(734, 758);
+            this.cbxBreed.Location = new System.Drawing.Point(1011, 800);
             this.cbxBreed.Name = "cbxBreed";
-            this.cbxBreed.Size = new System.Drawing.Size(121, 21);
+            this.cbxBreed.Size = new System.Drawing.Size(266, 39);
             this.cbxBreed.TabIndex = 2;
             this.cbxBreed.SelectedIndexChanged += new System.EventHandler(this.cbxBreed_SelectedIndexChanged);
             // 
             // cbxSpecies
             // 
+            this.cbxSpecies.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxSpecies.FormattingEnabled = true;
-            this.cbxSpecies.Location = new System.Drawing.Point(569, 759);
+            this.cbxSpecies.Location = new System.Drawing.Point(719, 800);
             this.cbxSpecies.Name = "cbxSpecies";
-            this.cbxSpecies.Size = new System.Drawing.Size(121, 21);
+            this.cbxSpecies.Size = new System.Drawing.Size(266, 39);
             this.cbxSpecies.TabIndex = 3;
             this.cbxSpecies.SelectedIndexChanged += new System.EventHandler(this.cbxSpecies_SelectedIndexChanged);
             // 
             // cbxMode
             // 
+            this.cbxMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxMode.FormattingEnabled = true;
-            this.cbxMode.Location = new System.Drawing.Point(261, 759);
+            this.cbxMode.Location = new System.Drawing.Point(121, 800);
             this.cbxMode.Name = "cbxMode";
-            this.cbxMode.Size = new System.Drawing.Size(121, 21);
+            this.cbxMode.Size = new System.Drawing.Size(248, 39);
             this.cbxMode.TabIndex = 4;
             this.cbxMode.SelectedIndexChanged += new System.EventHandler(this.cbxMode_SelectedIndexChanged);
             // 
             // cbxGroup
             // 
+            this.cbxGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxGroup.FormattingEnabled = true;
-            this.cbxGroup.Location = new System.Drawing.Point(419, 759);
+            this.cbxGroup.Location = new System.Drawing.Point(403, 800);
             this.cbxGroup.Name = "cbxGroup";
-            this.cbxGroup.Size = new System.Drawing.Size(121, 21);
+            this.cbxGroup.Size = new System.Drawing.Size(278, 39);
             this.cbxGroup.TabIndex = 5;
             this.cbxGroup.SelectedIndexChanged += new System.EventHandler(this.cbxGroup_SelectedIndexChanged);
             // 
             // nudGraphLength
             // 
-            this.nudGraphLength.Location = new System.Drawing.Point(894, 759);
+            this.nudGraphLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudGraphLength.Location = new System.Drawing.Point(1302, 801);
             this.nudGraphLength.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.nudGraphLength.Name = "nudGraphLength";
-            this.nudGraphLength.Size = new System.Drawing.Size(120, 20);
+            this.nudGraphLength.Size = new System.Drawing.Size(175, 38);
             this.nudGraphLength.TabIndex = 6;
             this.nudGraphLength.Value = new decimal(new int[] {
             7,
@@ -124,17 +129,6 @@ namespace FarmFeedingAppV2
             this.rtbSummaryText.TabIndex = 7;
             this.rtbSummaryText.Text = "";
             // 
-            // btnSaveAndExit
-            // 
-            this.btnSaveAndExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnSaveAndExit.Location = new System.Drawing.Point(1551, 844);
-            this.btnSaveAndExit.Name = "btnSaveAndExit";
-            this.btnSaveAndExit.Size = new System.Drawing.Size(225, 85);
-            this.btnSaveAndExit.TabIndex = 8;
-            this.btnSaveAndExit.Text = "Save and Exit";
-            this.btnSaveAndExit.UseVisualStyleBackColor = true;
-            this.btnSaveAndExit.Click += new System.EventHandler(this.btnSaveAndExit_Click);
-            // 
             // btnHome
             // 
             this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
@@ -145,6 +139,17 @@ namespace FarmFeedingAppV2
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // btnSaveAndExit
+            // 
+            this.btnSaveAndExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnSaveAndExit.Location = new System.Drawing.Point(1551, 844);
+            this.btnSaveAndExit.Name = "btnSaveAndExit";
+            this.btnSaveAndExit.Size = new System.Drawing.Size(225, 85);
+            this.btnSaveAndExit.TabIndex = 8;
+            this.btnSaveAndExit.Text = "Save and Exit";
+            this.btnSaveAndExit.UseVisualStyleBackColor = true;
+            this.btnSaveAndExit.Click += new System.EventHandler(this.btnSaveAndExit_Click);
             // 
             // DisplayData
             // 
@@ -160,7 +165,7 @@ namespace FarmFeedingAppV2
             this.Controls.Add(this.cbxSpecies);
             this.Controls.Add(this.cbxBreed);
             this.Controls.Add(this.chtStatGraph);
-            this.MinimumSize = new System.Drawing.Size(1918, 1038);
+            this.MinimumSize = new System.Drawing.Size(1918, 1030);
             this.Name = "DisplayData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DisplayData";
