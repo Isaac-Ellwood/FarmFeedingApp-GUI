@@ -27,6 +27,9 @@ namespace FarmFeedingAppV2
         // Should be false until it loads saved or default data
         public bool holdsData = false;
 
+        // Constant(readonly) save file name
+        readonly string SAVEFILENAME = "SaveData.json";
+
         // Constructs a Livestock Manager object
         public LivestockManager()
         {
@@ -513,7 +516,7 @@ namespace FarmFeedingAppV2
         public void DeserialiseSaveData()
         {
             // Deserialises Save Data
-            string fileName = "SaveData.json";
+            string fileName = SAVEFILENAME;
             string jsonString = File.ReadAllText(fileName);
             SaveData saveData = JsonSerializer.Deserialize<SaveData>(jsonString)!;
 
@@ -588,7 +591,7 @@ namespace FarmFeedingAppV2
             };
 
             // Serialises data and saves to \bin\Debug\net5.0
-            string fileName = "SaveData.json";
+            string fileName = SAVEFILENAME;
             string jsonString = JsonSerializer.Serialize(saveData);
             File.WriteAllText(fileName, jsonString);
         }
